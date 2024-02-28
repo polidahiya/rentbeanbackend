@@ -263,29 +263,68 @@
         font-size: 12px;
       }
       /* main 2 container */
-      .main2container{
-        height: 150px;
+      .main2container {
         width: 100%;
         box-sizing: border-box;
-        /* padding: 20px 40px; */
+        margin-top: 30px;
+        padding: 0 40px;
+        display: none;
       }
-      .addonscontainer{
-        position: relative;
+      .addonscontainer {
         width: calc(70% - 45px);
-        height: 100%;
-        border: 1px solid red;
+        position: relative;
+        border: 1px solid grey;
+        height: 150px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
       }
-      .addonscontainer .addmore{
+      .addonscontainer .title {
+        margin: 10px;
+      }
+      .addonscontainer .addmore {
         position: absolute;
         top: 50%;
         right: 0;
-        transform: translate(50%,-50%);
+        transform: translate(50%, -50%);
         height: 80px;
         aspect-ratio: 1;
         border: none;
         background-color: white;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
         border-radius: 10px;
+      }
+      .addonscontainerinner {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+      }
+      /* added items */
+      .addeditem{
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
+        border-radius: 10px;
+      }
+      .addeditem>img{
+        height: 60px;
+        aspect-ratio: 1;
+      }
+      .addeditem>.name{
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 60px;
+        overflow: hidden;
+        text-align: center;
       }
       /* description */
       .descriptioncontainer {
@@ -622,7 +661,38 @@
     </main>
     <div class="main2container">
       <div class="addonscontainer">
+        <div class="title">Included with product</div>
         <button class="addmore"></button>
+        <div class="addonscontainerinner">
+          <div class="addeditem">
+            <img
+              src="https://m.media-amazon.com/images/I/61X-sApM8sL.jpg"
+              alt=""
+            />
+            <div class="name">data cable</div>
+          </div>
+          <div class="addeditem">
+            <img
+              src="https://m.media-amazon.com/images/I/61X-sApM8sL.jpg"
+              alt=""
+            />
+            <div class="name">data cable</div>
+          </div>
+          <div class="addeditem">
+            <img
+              src="https://m.media-amazon.com/images/I/61X-sApM8sL.jpg"
+              alt=""
+            />
+            <div class="name">data cable</div>
+          </div>
+          <div class="addeditem">
+            <img
+              src="https://m.media-amazon.com/images/I/61X-sApM8sL.jpg"
+              alt=""
+            />
+            <div class="name">data cable sajkdas dasjd </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="descriptioncontainer">
