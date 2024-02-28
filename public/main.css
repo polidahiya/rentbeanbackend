@@ -1,0 +1,400 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Mulish", sans-serif;
+}
+
+html {
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  width: 100vw;
+  margin: 0;
+  --bg1: rgb(247, 247, 250);
+  --headingsvg: rgb(82, 82, 82);
+  --theme: rgb(214, 142 ,67);
+  --theme50: rgb(214, 142 ,67, 0.5);
+  --theme20: rgb(214, 142 ,67, 0.2);
+  color: var(--headingsvg);
+}
+.notification {
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  background-color: var(--bg1);
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 5px;
+  transition: opacity 0.3s 0.4s, width 0.3s;
+  box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.5);
+  pointer-events: none;
+  opacity: 0;
+}
+.notification div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme);
+  opacity: 0;
+  font-size: 14px;
+  transition: opacity 0.1s;
+}
+.notification button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: calc(100% - 10px);
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+/*  */
+.activenotification {
+  transition: opacity 0.3s, width 0.3s 0.3s !important;
+  width: 350px !important;
+  pointer-events: all !important;
+  opacity: 1 !important;
+}
+.activenotification div {
+  opacity: 1;
+  transition: opacity 0.3s 0.6s;
+}
+/*  */
+nav {
+  box-sizing: border-box;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  user-select: none;
+}
+nav .menu {
+  display: none;
+}
+nav a {
+  height: 100%;
+}
+nav a .logodesk {
+  height: 100%;
+}
+nav .logodesk {
+  height: 100%;
+}
+nav .cart {
+  height: 35px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  background-color: var(--theme);
+  padding: 0px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+nav .cart svg {
+  height: 25px;
+}
+nav .cart span {
+  color: white;
+  font-size: 12px;
+}
+.cartcounter {
+  position: absolute;
+  height: 20px;
+  aspect-ratio: 1;
+  background-color: red;
+  font-size: 8px;
+  display: grid;
+  place-content: center;
+  color: white;
+  border-radius: 50%;
+  right: 0;
+  top: 0;
+  transform: translate(40%, -40%);
+  outline: 2px solid white;
+  display: none;
+}
+/*  */
+.desksidebar {
+  position: fixed;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  box-sizing: border-box;
+  top: 0px;
+  right: 120px;
+  z-index: 100;
+  user-select: none;
+}
+.desksidebar .locationcontainer {
+  position: relative;
+  top: 15px;
+  height: 30px;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid var(--headingsvg);
+  padding-inline: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+.desksidebar .locationcontainer img {
+  height: 50%;
+  aspect-ratio: 1;
+}
+.desksidebar .locationcontainer span {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.desksidebar .columns {
+  /* width: 150px; */
+  cursor: pointer;
+  height: 60px;
+  background-color: white;
+  color: var(--headingsvg);
+}
+.desksidebar .columns a {
+  color: var(--headingsvg);
+  font-size: 14px;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0 5px;
+  text-decoration: none !important;
+}
+.desksidebar .columns .heading svg {
+  height: 20px;
+  aspect-ratio: 1;
+}
+.desksidebar .columns .list {
+  height: 0;
+  opacity: 0;
+  background-color: var(--bg1);
+}
+/* active nav list classes for mobile*/
+.activecolumn {
+  border-bottom: 1px solid var(--theme) !important;
+  height: unset !important;
+}
+.activeheading {
+  border-bottom: 1px solid var(--theme) !important;
+}
+.activesvg {
+  transition: 0.3s !important;
+  transform: rotate(-180deg) !important;
+}
+.activelist {
+  height: 40px !important;
+  opacity: 1 !important;
+  transition: 0.1s !important;
+}
+/* location */
+.locationchoose {
+  position: fixed;
+  left: 0;
+  top: 0px;
+  background-color: rgba(255, 255, 255, 0.11);
+  height: 100dvh;
+  width: 100%;
+  z-index: 200;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  pointer-events: none;
+  opacity: 0;
+  transition:opacity 0.3s;
+}
+.activelocationchoose {
+  pointer-events: all;
+  opacity: 1;
+}
+.locationchoose::before {
+  position: absolute;
+  content: "Please select your location";
+  top: 20px;
+  left: 50%;
+  padding: 5px 20px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  background-color: var(--theme);
+  color: white;
+  display: grid;
+  place-content: center;
+}
+.locationchoose::after {
+  position: absolute;
+  content: "X";
+  top: 20px;
+  right: 20px;
+  height: 30px;
+  aspect-ratio: 1;
+  background-color: var(--theme);
+  color: white;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  z-index: -1;
+}
+.locationchoose button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
+.locationchoose .locations {
+  position: relative;
+  width: 120px;
+  aspect-ratio: 16/9;
+  background: url(logo&ui/citybg.jpg) center / cover;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  color: black;
+  text-shadow: 1px 1px 0px white;
+  outline: 1px solid var(--headingsvg);
+  border-radius: 5px;
+  z-index: 1;
+  user-select: none;
+}
+.locationchoose .locations:hover {
+  outline: 2px solid var(--theme);
+}
+.activelocation {
+  outline: 2px solid var(--theme) !important;
+}
+.locationchoose .locations::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 192, 203, 0.2);
+  z-index: -1;
+}
+/*  */
+@media screen and (width>450px) {
+  body::-webkit-scrollbar {
+    width: 5px;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--theme);
+    border-radius: 100px;
+  }
+  .desksidebar .columns:hover {
+    border-bottom: 1px solid var(--theme);
+    height: unset;
+  }
+  .desksidebar .columns:hover .heading {
+    border-bottom: 1px solid var(--theme);
+  }
+  .desksidebar .columns:hover .heading svg {
+    transition: 0.3s;
+    transform: rotate(-180deg);
+  }
+  .desksidebar .columns .list:hover {
+    color: var(--theme);
+  }
+  .desksidebar .columns:hover .list {
+    height: 40px;
+    opacity: 1;
+  }
+}
+/* mobile */
+@media screen and (width<450px) {
+  .activenotification {
+    width: 80% !important;
+  }
+  nav {
+    padding: 0px 20px;
+  }
+  nav .menu {
+    height: 70%;
+    margin-left: 20px;
+    display: block;
+  }
+  .desksidebar {
+    background-color: var(--theme);
+    height: calc(100dvh - 60px);
+    flex-direction: column;
+    width: 100%;
+    left: 0;
+    top: 60px;
+    right: unset;
+    justify-content: start;
+    gap: 0;
+    overflow-y: scroll;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50%);
+    transition: 0.3s 0.8s;
+  }
+  .activesidebar {
+    transition: 0.3s 0s;
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(0%);
+  }
+  .desksidebar .locationcontainer {
+    position: absolute;
+    top: unset;
+    bottom: 10px;
+    left: 50%;
+    width: 90%;
+    height: 40px;
+    transform: translateX(-50%);
+  }
+  .desksidebar .locationcontainer span {
+    font-size: 14px;
+  }
+  .desksidebar .columns {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  .movingcolumns {
+    opacity: 1 !important;
+    transform: translateX(0%) !important;
+  }
+  .desksidebar .columns div,
+  .desksidebar .columns a {
+    height: 60px;
+    padding: 0 5px;
+    flex-direction: row-reverse;
+    position: relative;
+  }
+  .desksidebar .columns .heading svg {
+    position: absolute;
+    right: 20px;
+    border: 1px solid var(--theme);
+    height: 30px;
+    border-radius: 50%;
+  }
+}

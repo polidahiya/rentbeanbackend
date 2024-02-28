@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      nav {
+        height: 60px;
+        position: sticky;
+        top: 0;
+        padding: 5px 40px;
+        box-sizing: border-box;
+      }
+      nav img {
+        height: 100%;
+      }
+      /*  */
+      main .menu {
+        height: 30px;
+        width: 300px;
+        background-color: var(--theme);
+        margin-inline: auto;
+        display: flex;
+        position: relative;
+        border-radius: 100px;
+        overflow: hidden;
+        position: sticky;
+        top: 60px;
+      }
+      main .menu .options {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+      }
+      main .menu .option1 {
+        color: var(--theme);
+      }
+      main .menu .coption {
+        height: calc(100% - 5px);
+        top: 50%;
+        transform: translateY(-50%);
+        left: 2.5px;
+        width: 50%;
+        position: absolute;
+        background-color: white;
+        border-radius: 100px;
+        z-index: -1;
+        transition: 0.3s;
+      }
+      .slider {
+        height: calc(100dvh - 90px);
+        width: 100%;
+        display: flex;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+      }
+      .slider::-webkit-scrollbar {
+        height: 0;
+      }
+      .slider .page {
+        scroll-snap-align: start;
+        min-width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .slider .page .innerpage {
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        background-color: var(--theme50);
+      }
+
+      .slider .page .innerpage .orderscontainer {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .slider .page .innerpage .orderscontainer::-webkit-scrollbar {
+        width: 0;
+      }
+      .slider .page .innerpage .orderscontainer .order {
+        min-height: 50px;
+        max-height: 50px;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+        transition: 0.3s;
+        cursor: pointer;
+        box-sizing: border-box;
+        padding: 5px;
+        overflow: hidden;
+      }
+      .slider .page .innerpage .orderscontainer .completedorder {
+        opacity: 0.7;
+      }
+      .openorder {
+        min-height: unset !important;
+        max-height: unset !important;
+        overflow: unset !important;
+      }
+      .order .title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 40px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+      .order .title button {
+        height: 100%;
+        border: none;
+        width: 100px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .order .title .verified {
+        margin-left: auto;
+      }
+      .activeverified {
+        background-color: green !important;
+        color: white !important;
+      }
+      .completedorderscontainer .title .completed {
+        margin-left: auto;
+      }
+      .order .details {
+        padding-left: 20px;
+        box-sizing: border-box;
+      }
+      .order .details > div {
+        height: 30px;
+      }
+      /* product */
+      .order .products {
+        height: 200px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px dashed grey;
+      }
+      .order .products img {
+        height: 60%;
+        aspect-ratio: 1;
+        object-fit: contain;
+      }
+      .order input {
+        border: none;
+        outline: none;
+      }
+    </style>
+    <!-- login styles -->
+    <style>
+      /* login */
+      .loginscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 200;
+        height: 100dvh;
+        width: 100%;
+        overflow: hidden;
+        display: grid;
+        place-content: center;
+        background: url(https://wallpaper-house.com/data/out/10/wallpaper2you_420328.jpg)
+          center / cover;
+        /* display: none; */
+      }
+      .logincontainer {
+        height: 200px;
+        aspect-ratio: 5/3;
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        backdrop-filter: blur(10px);
+      }
+      .logincontainer input {
+        background-color: rgba(255, 255, 255, 0.429);
+        border: 1.5px solid rgb(0, 0, 0);
+        border-radius: 100px;
+        height: 30px;
+        outline: none;
+        text-indent: 20px;
+        margin-top: 30px;
+      }
+      .logincontainer button {
+        margin: 10px;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 20px;
+        background-color: rgb(119, 202, 202);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav><img src="logo&ui/3dlogo.png" alt="" /></nav>
+    <main>
+      <div class="menu">
+        <div class="coption"></div>
+        <div
+          class="options option1"
+          onclick="document.querySelector('.slider').scrollLeft -=  (slider.clientWidth/2)+100 ;"
+        >
+          Orders
+        </div>
+        <div
+          class="options option2"
+          onclick="document.querySelector('.slider').scrollLeft +=  (slider.clientWidth/2)+100 ;"
+        >
+          Completed Orders
+        </div>
+      </div>
+      <div class="slider">
+        <div class="page">
+          <div class="innerpage">
+            <div class="orderscontainer"></div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="innerpage">
+            <div class="orderscontainer completedorderscontainer"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- login screeen -->
+    <div class="loginscreen">
+      <div class="logincontainer">
+        <h2>Admin</h2>
+        <label for="pass">Enter Password</label>
+        <input type="password" name="pass" id="password" />
+        <button onclick="login()">Submit</button>
+      </div>
+    </div>
+    <!-- main -->
+    <script>
+      // change slider
+      let slider = document.querySelector(".slider");
+      slider.onscroll = () => {
+        if (
+          0 ==
+          Math.floor(
+            (slider.scrollLeft + slider.clientWidth / 2) / slider.clientWidth
+          )
+        ) {
+          document.querySelector(".menu .option1").style.color = "var(--theme)";
+          document.querySelector(".menu .option2").style.color = "white";
+          document.querySelector(".coption").style.left = "2.5px";
+        }
+        if (
+          1 ==
+          Math.floor(
+            (slider.scrollLeft + slider.clientWidth / 2) / slider.clientWidth
+          )
+        ) {
+          document.querySelector(".menu .option1").style.color = "white";
+          document.querySelector(".menu .option2").style.color = "var(--theme)";
+          document.querySelector(".coption").style.left = "calc(50% - 2.5px)";
+        }
+      };
+      // openorder
+      function openorder(value) {
+        document.querySelectorAll(".order").forEach((item) => {
+          item.classList.remove("openorder");
+        });
+        value.classList.add("openorder");
+      }
+      // check if loged in or not from cookies
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+      }
+      // loged in or not
+      if (getCookie("logedin")) {
+        document.querySelector(".loginscreen").style.display = "none";
+        getorders();
+        getcompletedorders(0);
+      }
+      // get date form timestamp
+      function gettime(timestamp) {
+        const date = new Date(timestamp);
+        const months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        const year = date.getFullYear();
+        const month = months[date.getMonth()];
+        const day = date.getDate();
+        const hour = date.getHours();
+        const period = hour >= 12 ? "PM" : "AM";
+        const formattedHour = hour % 12 || 12;
+        return {
+          Month: month,
+          Day: day,
+          Time: formattedHour + " " + period,
+          Hour: hour,
+          Year: year,
+        };
+      }
+      // login with password
+      function login() {
+        fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            password: document.querySelector("#password").value,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.message == "true") {
+              document.querySelector(".loginscreen").style.display = "none";
+              getorders();
+              getcompletedorders(0);
+              // showalertbox("Login successfull");
+            } else {
+              // showalertbox("Wrong Password");
+            }
+          });
+      }
+      // get all orders
+      let pricetype = {
+        1: [1, 3, 6, 12], // month
+        2: [1, 3, 7, 30], //days
+        3: [1, 3, 6], //laptops
+        4: [6], //ac coolers
+      };
+      let pricetypename = ["mo", "day", "mo", "season"];
+      function getorders() {
+        fetch("/admin/orders")
+          .then((res) => res.json())
+          .then((res) => {
+            res.forEach((order) => {
+              let verified = order.verified;
+              let dateandtime = gettime(order.date);
+              let orderelem = document.createElement("div");
+              orderelem.classList.add("order");
+              orderelem.onclick = () => openorder(orderelem);
+              orderelem.innerHTML = `
+              <div class="title">
+                  <div class="name">${order.userdata.name}</div>
+                </div>
+                <div class="details">
+                  <div>
+                    Mobile :
+                    ${order.userdata.mobile}
+                  </div>
+                  <div>
+                    Email :
+                    ${order.userdata.email}
+                  </div>
+                  <div>
+                    Location :
+                  ${order.location}
+                  </div>
+                  <div>
+                    Address :
+                   ${order.userdata.address}
+                  </div>
+                  <div>
+                    Date : ${dateandtime.Day} ${dateandtime.Month} ${dateandtime.Year}
+                  </div>
+                  <div>
+                    Time : ${dateandtime.Time}
+                  </div>
+                </div>
+              `;
+              // verify button
+              let verifiedbutton = document.createElement("button");
+              verifiedbutton.classList.add("verified");
+              if (verified) {
+                verifiedbutton.classList.add("activeverified");
+                verifiedbutton.innerHTML = "Verified";
+              } else {
+                verifiedbutton.classList.remove("activeverified");
+                verifiedbutton.innerHTML = "Set verified";
+              }
+              verifiedbutton.onclick = () => {
+                if (verified) {
+                  fetch("/admin/setunverified", {
+                    method: "post",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ id: order._id }),
+                  })
+                    .then((res) => res.json())
+                    .then((res) => {
+                      verifiedbutton.classList.remove("activeverified");
+                      verifiedbutton.innerHTML = "Set verified";
+                      verified = true;
+                    });
+                } else {
+                  fetch("/admin/setverified", {
+                    method: "post",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ id: order._id }),
+                  })
+                    .then((res) => res.json())
+                    .then((res) => {
+                      verifiedbutton.classList.add("activeverified");
+                      verifiedbutton.innerHTML = "verified";
+                      verified = false;
+                    });
+                }
+              };
+              orderelem.querySelector(".title").appendChild(verifiedbutton);
+              // completed button
+              let completedbutton = document.createElement("button");
+              completedbutton.classList.add("completed");
+              completedbutton.innerHTML = "Set Completed";
+              completedbutton.onclick = () => {
+                fetch("/admin/setcompleted", {
+                  method: "post",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ id: order._id }),
+                })
+                  .then((res) => res.json())
+                  .then((res) => {
+                    if (res.message == "updated") {
+                      orderelem.style.display = "none";
+                    }
+                  });
+              };
+              orderelem.querySelector(".title").appendChild(completedbutton);
+              // products
+              order.product.forEach((product) => {
+                let productelem = document.createElement("div");
+                productelem.classList.add("products");
+                productelem.innerHTML = `
+                <img
+                    src="${product.img}"
+                    alt=""
+                  />
+                  <div class="productdetails">
+                    <div>
+                      Name :
+                      ${product.name}
+                    </div>
+                    <div>
+                      Productid :
+                      ${product.pid}
+                    </div>
+                    <div>
+                      Duration :
+                      ${pricetype[product.pricetype][product.time - 1]} ${
+                  pricetypename[product.pricetype - 1]
+                }
+                    </div>
+                    <div>
+                      Price :
+                     ${product.prices[product.time - 1]} rs
+                    </div>
+                  </div>
+                `;
+                orderelem.appendChild(productelem);
+              });
+              document.querySelector(".orderscontainer").appendChild(orderelem);
+            });
+          });
+      }
+      //
+      //
+      //
+      //
+      // completed orders
+      // getcompletedorders(0);
+      function getcompletedorders(skipvalue) {
+        fetch("/admin/completedorders", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ skip: skipvalue }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            res.forEach((order) => {
+              let dateandtime = gettime(order.date);
+              let orderelem = document.createElement("div");
+              orderelem.classList.add("order", "completedorder");
+              orderelem.onclick = () => openorder(orderelem);
+              orderelem.innerHTML = `
+              <div class="title">
+                  <div class="name">${order.userdata.name}</div>
+                </div>
+                <div class="details">
+                  <div>
+                    Mobile :${order.userdata.mobile}
+                  </div>
+                  <div>
+                    Email :${order.userdata.email}
+                  </div>
+                  <div>
+                    Location :${order.location}
+                  </div>
+                  <div>
+                    Address :${order.userdata.address}
+                  </div>
+                  <div>
+                    Date : ${dateandtime.Day} ${dateandtime.Month} ${dateandtime.Year}
+                  </div>
+                  <div>
+                    Time : ${dateandtime.Time}
+                  </div>
+                </div>
+              `;
+              // completed button
+              let completedbutton = document.createElement("button");
+              completedbutton.classList.add("completed");
+              completedbutton.innerHTML = "Set Notcompleted";
+              completedbutton.onclick = () => {
+                fetch("/admin/setnotcompleted", {
+                  method: "post",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ id: order._id }),
+                })
+                  .then((res) => res.json())
+                  .then((res) => {
+                    if (res.message == "updated") {
+                      orderelem.style.display = "none";
+                    }
+                  });
+              };
+              orderelem.querySelector(".title").appendChild(completedbutton);
+              // products
+              order.product.forEach((product) => {
+                let productelem = document.createElement("div");
+                productelem.classList.add("products");
+                productelem.innerHTML = `
+                <img
+                    src="${product.img}"
+                    alt=""
+                  />
+                  <div class="productdetails">
+                    <div>
+                      Name :${product.name}
+                    </div>
+                    <div>
+                      Productid :${product.pid}
+                    </div>
+                    <div>
+                      Duration :
+                      ${pricetype[product.pricetype][product.time - 1]} ${
+                  pricetypename[product.pricetype - 1]
+                }
+                    </div>
+                    <div>
+                      Price :
+                      ${product.prices[product.time - 1]} rs
+                    </div>
+                  </div>
+                `;
+                orderelem.appendChild(productelem);
+              });
+              document
+                .querySelector(".completedorderscontainer")
+                .appendChild(orderelem);
+            });
+          });
+      }
+    </script>
+  </body>
+</html>

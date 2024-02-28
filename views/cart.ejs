@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - Rentbean</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- spinner -->
+    <link rel="stylesheet" href="imageloading.css" />
+    <!-- main -->
+    <link rel="stylesheet" href="main.css" />
+    <!-- page styles -->
+    <style>
+      .cart {
+        display: none !important;
+      }
+      .desksidebar {
+        right: 40px;
+      }
+      .emptybg {
+        min-height: calc(100dvh - 60px);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .emptybg img {
+        height: 200px;
+      }
+      .emptybg h2 {
+        margin-bottom: 0;
+        margin-top: 50px;
+      }
+      .emptybg p {
+        width: 400px;
+        text-align: center;
+        font-size: 14px;
+      }
+      /* main */
+      main {
+        padding-inline: 40px;
+        padding-bottom: 50px;
+        margin-top: 30px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: start;
+        gap: 20px;
+      }
+      main form {
+        width: 100%;
+        position: sticky;
+        top: 90px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
+        border-radius: 10px;
+        padding: 30px;
+        background-color: var(--bg1);
+        box-sizing: border-box;
+      }
+      main form label {
+        margin-left: 10px;
+      }
+      main form input {
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 20px;
+        margin-top: 5px;
+        text-indent: 30px;
+        outline: none;
+        box-shadow: 1px 1px 5px 0px var(--theme20);
+      }
+      main form input:focus {
+        border: 1px solid var(--theme);
+      }
+      main form button {
+        height: 30px;
+        width: 200px;
+        border-radius: 10px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--theme);
+        color: white;
+        border: 1px solid var(--theme50);
+        cursor: pointer;
+        text-indent: 0;
+      }
+      main form button:hover {
+        background-color: transparent;
+        color: var(--theme);
+      }
+      /*  */
+      main .productscontainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      main .productscontainer .cartproduct {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
+        box-sizing: border-box;
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        position: relative;
+      }
+      .cartproduct > .delete {
+        position: absolute;
+        border: none;
+        top: 10px;
+        right: 10px;
+        height: 30px;
+        aspect-ratio: 1;
+        cursor: pointer;
+        font-size: 15px;
+        color: grey;
+      }
+      .cartproduct img {
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+      }
+      .cartproduct .details {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      .cartproduct .details .title {
+        width: calc(50vw - 340px);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .cartproduct .details .rent {
+        color: rgba(128, 128, 128, 0.813);
+        font-size: 14px;
+      }
+      /*  */
+      .cartproduct .details .controls {
+        display: flex;
+        gap: 20px;
+        height: 25px;
+      }
+      .controls .amountcontainer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border: 1px solid rgba(128, 128, 128, 0.5);
+        border-radius: 100px;
+        overflow: hidden;
+      }
+      .controls .amountcontainer button {
+        border: none;
+        height: 100%;
+        aspect-ratio: 2/1;
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+      }
+      .controls .amountcontainer div {
+        display: grid;
+        place-content: center;
+        font-size: 12px;
+      }
+      /*  */
+      .controls .monthscontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px solid rgba(128, 128, 128, 0.5);
+        border-radius: 100px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      /*  */
+      .selectmonthsmenu {
+        position: fixed;
+        left: 0;
+        top: 0px;
+        background-color: rgba(255, 255, 255, 0.11);
+        height: 100dvh;
+        width: 100%;
+        z-index: 200;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        pointer-events: none;
+        opacity: 0;
+        transition: 0.3s;
+      }
+      .activeselectmonthsmenu {
+        pointer-events: all !important;
+        opacity: 1 !important;
+      }
+      .selectmonthsmenu::before {
+        position: absolute;
+        content: "X";
+        top: 20px;
+        right: 20px;
+        height: 30px;
+        aspect-ratio: 1;
+        background-color: var(--theme);
+        color: white;
+        display: grid;
+        place-content: center;
+        border-radius: 50%;
+      }
+      .selectmonthsmenu button {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        opacity: 0;
+      }
+      .month {
+        height: 30px;
+        width: 300px;
+        color: rgba(0, 0, 0, 0.6);
+        border-radius: 5px;
+        border: 1px solid grey;
+        background-color: var(--theme20);
+        display: grid;
+        place-content: center;
+        cursor: pointer;
+        z-index: 1;
+      }
+      .selectedmonth {
+        color: white !important;
+        background-color: var(--theme) !important;
+      }
+      /* final menu */
+      .finalmenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        backdrop-filter: blur(10px);
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        place-content: center;
+        display: none;
+      }
+      .successfullcontainer {
+        width: 300px;
+        aspect-ratio: 4/3;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      }
+      .successfullcontainer img {
+        max-height: 50%;
+      }
+      .successfullcontainer button {
+        padding: 5px 30px;
+        background-color: rgb(18, 215, 110);
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+      /*  */
+      @media screen and (width<450px) {
+        nav .menu {
+          margin-left: auto;
+        }
+        /* main */
+        main {
+          padding-inline: 20px;
+          flex-direction: column;
+          align-items: start;
+        }
+        main form {
+          position: static;
+          top: unset;
+        }
+        main .productscontainer .cartproduct {
+          height: 120px;
+        }
+        .cartproduct > .delete {
+          height: 30px;
+          aspect-ratio: 1;
+          font-size: 16px;
+        }
+        .cartproduct .details {
+          padding: 5px;
+        }
+        .cartproduct .details .title {
+          width: calc(100vw - 220px);
+        }
+        .controls .amountcontainer button {
+          aspect-ratio: 1.5/1;
+        }
+      }
+    </style>
+    <!-- form -->
+    <style></style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logolink">
+        <img src="logo&ui/3dlogo.png" alt="" class="logodesk" />
+      </a>
+      <a href="cart" class="cart">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M2.23737 2.28845C1.84442 2.15746 1.41968 2.36983 1.28869 2.76279C1.15771 3.15575 1.37008 3.58049 1.76303 3.71147L2.02794 3.79978C2.70435 4.02524 3.15155 4.17551 3.481 4.32877C3.79296 4.47389 3.92784 4.59069 4.01426 4.71059C4.10068 4.83049 4.16883 4.99538 4.20785 5.33722C4.24907 5.69823 4.2502 6.17 4.2502 6.883L4.2502 9.55484C4.25018 10.9224 4.25017 12.0247 4.36673 12.8917C4.48774 13.7918 4.74664 14.5497 5.34855 15.1516C5.95047 15.7535 6.70834 16.0124 7.60845 16.1334C8.47542 16.25 9.57773 16.25 10.9453 16.25H18.0002C18.4144 16.25 18.7502 15.9142 18.7502 15.5C18.7502 15.0857 18.4144 14.75 18.0002 14.75H11.0002C9.56479 14.75 8.56367 14.7484 7.80832 14.6468C7.07455 14.5482 6.68598 14.3677 6.40921 14.091C6.17403 13.8558 6.00839 13.5398 5.9034 13H16.0222C16.9817 13 17.4614 13 17.8371 12.7522C18.2128 12.5045 18.4017 12.0636 18.7797 11.1817L19.2082 10.1817C20.0177 8.2929 20.4225 7.34849 19.9779 6.67422C19.5333 5.99996 18.5058 5.99996 16.4508 5.99996H5.74526C5.73936 5.69227 5.72644 5.41467 5.69817 5.16708C5.64282 4.68226 5.52222 4.2374 5.23112 3.83352C4.94002 3.42965 4.55613 3.17456 4.1137 2.96873C3.69746 2.7751 3.16814 2.59868 2.54176 2.38991L2.23737 2.28845Z"
+              fill="white"
+            ></path>
+            <path
+              d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
+              fill="white"
+            ></path>
+            <path
+              d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
+              fill="white"
+            ></path>
+          </g>
+        </svg>
+        <span>Cart</span>
+        <div class="cartcounter">1</div>
+      </a>
+      <svg
+        class="menu"
+        onclick="showmenu()"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <g id="Menu / Menu_Alt_05">
+            <path
+              id="Vector"
+              d="M5 17H13M5 12H19M11 7H19"
+              stroke="var(--theme)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </g>
+      </svg>
+    </nav>
+    <div class="desksidebar">
+      <div class="locationcontainer" onclick="showlocations()">
+        <img src="logo&ui/locationtheme.svg" alt="" />
+        <span>Choose location</span>
+      </div>
+    </div>
+    <div class="locationchoose activelocationchoose">
+      <button onclick="hidelocations()">X</button>
+      <div class="locations">Delhi</div>
+      <div class="locations">Gurgaon</div>
+      <div class="locations">Noida</div>
+    </div>
+    <!-- empty cart background -->
+    <div class="emptybg">
+      <img src="logo&ui/no-cart.png" alt="" />
+      <h2>No items in cart</h2>
+      <p>
+        Add a few items to your cart and come back here for an express checkout
+        process!
+      </p>
+    </div>
+    <!-- name,address, email,mobile no-->
+    <div class="selectmonthsmenu">
+      <button onclick="hidemonthmenu()"></button>
+    </div>
+    <main>
+      <div class="productscontainer">
+        <!-- <div class="cartproduct">
+          <a href="">
+            <img src="images/tv.jpeg" alt="" />
+          </a>
+          <div class="details">
+            <div class="title">fjskd fsdj fjsdk fd</div>
+            <div class="rent">Rent : ₹ <span>100</span> / mo</div>
+            <div class="controls">
+              <div class="amountcontainer">
+                <button class="deccrease">-</button>
+                <div>1</div>
+                <button class="increase">+</button>
+              </div>
+              <div class="monthscontainer">
+                <span>3 months</span>
+              </div>
+            </div>
+          </div>
+          <button class="delete">X</button>
+        </div> -->
+      </div>
+      <form id="userdata" method="post">
+        <label for="name">Name:</label><br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="eg - Rahul"
+        />
+        <label for="email">Email:</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="eg - Rahul890@gmail.com"
+        />
+        <label for="mobile">Mobile Number:</label><br />
+        <input
+          type="tel"
+          id="mobile"
+          name="mobile"
+          pattern="[0-9]{10}"
+          required
+          placeholder="eg - 98..........56"
+        />
+        <label for="address">Address:</label><br />
+        <input
+          type="text"
+          id="address"
+          name="address"
+          required
+          placeholder="eg - Hno-34 , galino-23 , place etc"
+        />
+        <button type="button" onclick="adduserdatatolocalstorage(this)">
+          Place order
+        </button>
+      </form>
+    </main>
+    <!-- order placed menu -->
+    <div class="finalmenu">
+      <div class="successfullcontainer">
+        <img src="logo&ui/orderplaced successfully.gif" alt="" loop="false" />
+        <p>Order placed Successfully</p>
+        <button onclick="window.location.reload()">Ok</button>
+      </div>
+    </div>
+    <!-- nav script -->
+    <script src="nav.js"></script>
+
+    <!-- show empty background or not  -->
+    <script>
+      let localdata = JSON.parse(localStorage.getItem("rbproducts"));
+      function checkemptycart() {
+        localdata = JSON.parse(localStorage.getItem("rbproducts"));
+        if (localdata) {
+          if (localdata.length > 0) {
+            document.querySelector(".emptybg").style.display = "none";
+            document.querySelector("main").style.display = "flex";
+          } else {
+            document.querySelector(".emptybg").style.display = "flex";
+            document.querySelector("main").style.display = "none";
+          }
+        } else {
+          document.querySelector(".emptybg").style.display = "flex";
+          document.querySelector("main").style.display = "none";
+        }
+      }
+      checkemptycart();
+
+      let type1prices = [1, 3, 6, 12]; // month
+      let type2prices = [1, 3, 7, 30]; //days
+      let type3prices = [1, 3, 6]; //laptops
+      let type4prices = [6]; //ac coolers
+      // create products
+      if (localdata) {
+        createproducts();
+      }
+      function createproducts() {
+        // remove previous products
+        document.querySelectorAll(".cartproduct").forEach((item) => {
+          item.remove();
+        });
+        //
+        localdata.forEach((item, i) => {
+          let card = document.createElement("div");
+          card.classList.add("cartproduct");
+          let imglink = document.createElement("a");
+          imglink.href = `productpage?p=${item.pid}`;
+          imglink.innerHTML = `<img src="${item.img}" alt="" />`;
+          card.appendChild(imglink);
+          //
+          let details = document.createElement("div");
+          details.classList.add("details");
+          //
+          let title = document.createElement("div");
+          title.classList.add("title");
+          title.innerHTML = item.name;
+          details.appendChild(title);
+          //
+          let rent = document.createElement("div");
+          rent.classList.add("rent");
+          rent.innerHTML = `
+                Total Rent : ₹ <span>${
+                  item.prices[item.time - 1] * item.num
+                }</span>
+                `;
+          details.appendChild(rent);
+          //
+          let controls = document.createElement("div");
+          controls.classList.add("controls");
+          //
+          let amountcontainer = document.createElement("div");
+          amountcontainer.classList.add("amountcontainer");
+          //
+          let amountoutput = document.createElement("div");
+          let decbutton = document.createElement("button");
+          decbutton.classList.add("deccrease");
+          decbutton.innerHTML = "-";
+          decbutton.onclick = () => {
+            if (item.num > 1) {
+              item.num--;
+              amountoutput.innerHTML = item.num;
+              localStorage.setItem("rbproducts", JSON.stringify(localdata));
+              //
+              rent.innerHTML = `
+                Total Rent : ₹ <span>${
+                  item.prices[item.time - 1] * item.num
+                }</span>
+                `;
+            }
+          };
+          amountcontainer.appendChild(decbutton);
+          //
+          amountoutput.innerHTML = item.num;
+          amountcontainer.appendChild(amountoutput);
+          //
+          let incbutton = document.createElement("button");
+          incbutton.classList.add("increase");
+          incbutton.innerHTML = "+";
+          incbutton.onclick = () => {
+            if (item.num < item.limit) {
+              item.num++;
+              amountoutput.innerHTML = item.num;
+              localStorage.setItem("rbproducts", JSON.stringify(localdata));
+              //
+              rent.innerHTML = `
+                Total Rent : ₹ <span>${
+                  item.prices[item.time - 1] * item.num
+                }</span>
+                `;
+            }
+          };
+          amountcontainer.appendChild(incbutton);
+          //
+          let monthcontainer = document.createElement("div");
+          monthcontainer.classList.add("monthscontainer");
+          if (item.pricetype == 1) {
+            monthcontainer.innerHTML = `<span>${type1prices[item.time - 1]} ${
+              type1prices[item.time - 1] == 1 ? "month" : "months"
+            }</span>`;
+          }
+          if (item.pricetype == 2) {
+            monthcontainer.innerHTML = `<span>${type2prices[item.time - 1]} ${
+              type2prices[item.time - 1] == 1 ? "day" : "days"
+            }</span>`;
+          }
+          if (item.pricetype == 3) {
+            monthcontainer.innerHTML = `<span>${type3prices[item.time - 1]} ${
+              type3prices[item.time - 1] == 1 ? "month" : "months"
+            }</span>`;
+          }
+          if (item.pricetype == 4) {
+            monthcontainer.innerHTML = `<span>${
+              type4prices[item.time - 1]
+            } months </span>`;
+          }
+          monthcontainer.onclick = () => {
+            showmonthsmenu();
+            // remove previous months
+            document
+              .querySelectorAll(".selectmonthsmenu .month")
+              .forEach((item) => item.remove());
+            // create new months
+            item.prices.forEach((price, j) => {
+              let month = document.createElement("div");
+              month.classList.add("month");
+              if (item.time == j + 1) {
+                month.classList.add("selectedmonth");
+              }
+              //
+              if (item.pricetype == 1) {
+                month.innerHTML =
+                  type1prices[j] +
+                  (j == 0 ? " month" : " months") +
+                  " - ₹" +
+                  price +
+                  " - ( ₹" +
+                  Math.floor(price / type1prices[j]) +
+                  "/mo )";
+              }
+              if (item.pricetype == 2) {
+                month.innerHTML =
+                  type2prices[j] +
+                  (j == 0 ? " day" : " days") +
+                  " - ₹" +
+                  price +
+                  " - ( ₹" +
+                  Math.floor(price / type2prices[j]) +
+                  "/day )";
+              }
+              if (item.pricetype == 3) {
+                month.innerHTML =
+                  type3prices[j] +
+                  (j == 0 ? " month" : " months") +
+                  " - ₹" +
+                  price +
+                  " - ( ₹" +
+                  Math.floor(price / type3prices[j]) +
+                  "/mo )";
+              }
+              if (item.pricetype == 4) {
+                month.innerHTML =
+                  type4prices[j] +
+                  (j == 0 ? " month" : " months") +
+                  " - ₹" +
+                  price +
+                  " - ( ₹" +
+                  Math.floor(price / type4prices[j]) +
+                  "/mo )";
+              }
+              month.onclick = () => {
+                document
+                  .querySelectorAll(".selectmonthsmenu .month")
+                  .forEach((item) => {
+                    item.classList.remove("selectedmonth");
+                  });
+                month.classList.add("selectedmonth");
+                item.time = j + 1;
+                if (item.pricetype == 1) {
+                  monthcontainer.innerHTML = `<span>${
+                    type1prices[item.time - 1]
+                  } ${
+                    type1prices[item.time - 1] == 1 ? "month" : "months"
+                  }</span>`;
+                }
+                if (item.pricetype == 2) {
+                  monthcontainer.innerHTML = `<span>${
+                    type2prices[item.time - 1]
+                  } ${type2prices[item.time - 1] == 1 ? "day" : "days"}</span>`;
+                }
+                if (item.pricetype == 3) {
+                  monthcontainer.innerHTML = `<span>${
+                    type3prices[item.time - 1]
+                  } ${
+                    type3prices[item.time - 1] == 1 ? "month" : "months"
+                  }</span>`;
+                }
+                if (item.pricetype == 4) {
+                  monthcontainer.innerHTML = `<span>${
+                    type4prices[item.time - 1]
+                  } months </span>`;
+                }
+                localStorage.setItem("rbproducts", JSON.stringify(localdata));
+                //
+                rent.innerHTML = `
+                Total Rent : ₹ <span>${
+                  item.prices[item.time - 1] * item.num
+                }</span>
+                `;
+              };
+              document.querySelector(".selectmonthsmenu").appendChild(month);
+            });
+          };
+          //
+          controls.appendChild(amountcontainer);
+          controls.appendChild(monthcontainer);
+          details.appendChild(controls);
+          card.appendChild(details);
+          //
+          let deletebutton = document.createElement("button");
+          deletebutton.classList.add("delete");
+          deletebutton.innerHTML = "X";
+          deletebutton.onclick = () => {
+            localdata.splice(i, 1);
+            localStorage.setItem("rbproducts", JSON.stringify(localdata));
+            createproducts();
+            checkemptycart();
+            shownotification("Removed successfully");
+          };
+          card.appendChild(deletebutton);
+          document.querySelector(".productscontainer").appendChild(card);
+        });
+      }
+      // show months
+      let monthmenuflag = false;
+      function showmonthsmenu() {
+        document
+          .querySelector(".selectmonthsmenu")
+          .classList.add("activeselectmonthsmenu");
+        disableBackButton();
+        monthmenuflag = true;
+      }
+      // hode months
+      function hidemonthmenu() {
+        document
+          .querySelector(".selectmonthsmenu")
+          .classList.remove("activeselectmonthsmenu");
+        enableBackButton();
+        monthmenuflag = false;
+      }
+    </script>
+    <!-- get user data form local storage  and fetch data(send data)-->
+    <script>
+      let userdata = JSON.parse(localStorage.getItem("rbuserdata"));
+      if (userdata) {
+        document.querySelector("#userdata #name").value = userdata.name;
+        document.querySelector("#userdata #email").value = userdata.email;
+        document.querySelector("#userdata #mobile").value = userdata.mobile;
+        document.querySelector("#userdata #address").value = userdata.address;
+      }
+      //  add user data to local storage
+      function adduserdatatolocalstorage(e) {
+        // validation
+        if (document.querySelector("#userdata #name").value == "") {
+          shownotification("Please enter your name");
+          document.querySelector("#userdata #name").focus();
+          return;
+        }
+        if (document.querySelector("#userdata #email").value == "") {
+          shownotification("Please enter your Email");
+          document.querySelector("#userdata #email").focus();
+          return;
+        }
+        if (document.querySelector("#userdata #mobile").value == "") {
+          shownotification("Please enter your Mobile number");
+          document.querySelector("#userdata #mobile").focus();
+          return;
+        }
+        if (document.querySelector("#userdata #address").value == "") {
+          shownotification("Please enter your Address");
+          document.querySelector("#userdata #address").focus();
+          return;
+        }
+        if (JSON.parse(localStorage.getItem("rblocation")) == null) {
+          shownotification("Please select location");
+          showlocations();
+          return;
+        }
+        //
+        localStorage.setItem(
+          "rbuserdata",
+          JSON.stringify({
+            name: document.querySelector("#userdata #name").value,
+            email: document.querySelector("#userdata #email").value,
+            mobile: document.querySelector("#userdata #mobile").value,
+            address: document.querySelector("#userdata #address").value,
+          })
+        );
+
+        // fetch req
+        const dataObject = {
+          product: JSON.parse(localStorage.getItem("rbproducts")),
+          location: JSON.parse(localStorage.getItem("rblocation")),
+          userdata: JSON.parse(localStorage.getItem("rbuserdata")),
+        };
+
+        // Send object data to the server
+        fetch("/placeorder", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataObject),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message == "done") {
+              document.querySelector(".finalmenu").style.display = "flex";
+              localStorage.setItem("rbproducts", JSON.stringify([]));
+            }
+          });
+      }
+    </script>
+  </body>
+</html>

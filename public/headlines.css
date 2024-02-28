@@ -1,0 +1,146 @@
+.highlightscontainer {
+  position: relative;
+  height: 400px;
+  width: calc(100vw - 80px);
+  overflow: hidden;
+  box-sizing: border-box;
+  color: white;
+  margin: auto;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.highlightscontainer:hover .buttons {
+  opacity: 1;
+}
+.highlightscrollingscontainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  transition: 0.4s;
+}
+.headingcards {
+  box-sizing: border-box;
+  height: 100%;
+  aspect-ratio: 1;
+  background-image: url("https://www.cockatooindia.com/cdn/shop/products/48b93f94-c787-4518-92ac-8a751570ee83.__CR00970600_PT0_SX970_V1.jpg?v=1672151447&width=970");
+  background-size: cover;
+  background-position: center;
+  transition: 0.4s;
+  border-radius: 12px;
+  transform: translateX(-785px);
+  filter: brightness(0.6);
+  border: 1px solid var(--theme);
+}
+.headingcards:nth-of-type(3) {
+  aspect-ratio: 7/4;
+  filter: brightness(1);
+  font-size: 25px;
+}
+/*  */
+.highlightscontainer button {
+  position: absolute;
+  height: 50px;
+  aspect-ratio: 1;
+  top: calc(50% - 25px);
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url(logo&ui/arrow.svg);
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  z-index: 10;
+  opacity: 0;
+  transition: 0.3s;
+  background-color: var(--theme50);
+}
+.highlightscontainer:hover button {
+  opacity: 1;
+}
+.highlightscontainer button:hover {
+  background-color: var(--theme);
+}
+.highlightscontainer .left {
+  transform: rotate(180deg);
+  left: 20px;
+}
+.highlightscontainer .right {
+  left: unset;
+  right: 20px;
+}
+.specialright,
+.specialleft {
+  position: absolute;
+  height: 100%;
+  width: 300px;
+  left: 745px;
+  z-index: 10;
+  opacity: 0;
+}
+.specialleft {
+  left: 0;
+  width: 25px;
+}
+/* dotts */
+.dottscontainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 100px;
+  padding-inline: 20px;
+}
+.dotts {
+  height: 6px;
+  aspect-ratio: 1;
+  background-color: rgb(255, 255, 255);
+  outline: 2px solid var(--theme20);
+  border-radius: 50%;
+}
+.dotts:nth-of-type(1) {
+  background-color: var(--theme);
+  height: 10px;
+}
+/* tablet */
+@media screen and (width<1000px) {
+  .highlightscontainer {
+    height: 400px;
+    width: 80vw;
+  }
+}
+/* mobile view */
+@media screen and (width<450px) {
+  .highlightscontainer {
+    height: unset;
+    width: calc(100% - 20px);
+    aspect-ratio: 7/4;
+    outline: 1px solid var(--theme20);
+  }
+  .headingcards {
+    border: unset;
+    height: 100%;
+    transform: translateX(calc((-100vw - 20px) * 7 / 6 + 40px));
+  }
+  .highlightscontainer button {
+    height: 100%;
+    aspect-ratio: unset;
+    width: 30px;
+    top: 0;
+    background-color: transparent;
+    border-radius: unset;
+    opacity: 1;
+    outline: none;
+  }
+  .highlightscontainer button:hover {
+    background-color: unset;
+  }
+}
