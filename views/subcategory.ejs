@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png">
+    <title></title>
+    <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,7 +127,7 @@
         opacity: 0;
         width: 100%;
         aspect-ratio: 1;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
         border-radius: 10px;
         transition: 0.3s;
@@ -140,7 +142,7 @@
       .productgrid .card .rent {
         position: relative;
         height: 30px;
-        width: 70%;
+        min-width: 70%;
         background-color: var(--theme);
         color: white;
         border-radius: 10px;
@@ -148,6 +150,7 @@
         align-items: center;
         justify-content: center;
         font-size: 14px;
+        padding-inline: 10px;
       }
       .productgrid .card .rent::before {
         content: "";

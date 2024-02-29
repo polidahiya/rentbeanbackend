@@ -12,6 +12,7 @@
               "productimages/1122/img2.jpeg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2200, 6600, 11500, 22000],
             "pid": "treadminll1",
             "desc": [
@@ -37,6 +38,7 @@
             "name": "Moterized Treadmill SX-2211",
             "image": ["productimages/2211/img1.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [2800, 8400, 14500, 25000],
             "pid": "treadminll2",
             "desc": [
@@ -65,6 +67,7 @@
               "productimages/3366/img2.jpeg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [3200, 9600, 17500, 30000],
             "pid": "treadminll3",
             "desc": [
@@ -95,6 +98,7 @@
             "name": "Eliptical Cross-Trainer CT-1232",
             "image": ["productimages/ct1232/cross trainer s2.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [1800, 5400, 9500, 18000],
             "pid": "crosstrainer1",
             "desc": [
@@ -119,6 +123,7 @@
             "name": "Eliptical Cross-Trainer CT-5664",
             "image": ["productimages/ct5664/cross trainer big.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [2200, 6600, 11500, 22000],
             "pid": "crosstrainer2",
             "desc": [
@@ -148,6 +153,7 @@
             "name": "Gym bike CT-306",
             "image": ["productimages/gb306/gym bike small.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [1800, 5400, 9500, 18000],
             "pid": "gymbike1",
             "desc": [
@@ -174,6 +180,7 @@
               "productimages/gb507/gym bike big.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2200, 6600, 11500, 22000],
             "pid": "gymbike2",
             "desc": [
@@ -202,6 +209,7 @@
             "name": "Sheldon Cool Ride",
             "image": ["productimages/Sheldoncoolbike/COOL-RIDE-1.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [500, 1000, 1500, 2500],
             "pid": "bicycle1",
             "desc": ["For Domestic use only", ""],
@@ -235,6 +243,7 @@
               "productimages/ps4/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [800, 2000, 3000, 5000],
             "pid": "ps41",
             "desc": ["desc1", "desc2"],
@@ -263,6 +272,7 @@
               "productimages/xbox/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [800, 2000, 3000, 5000],
             "pid": "xbox1",
             "desc": ["desc1", "desc2"],
@@ -286,6 +296,7 @@
               "productimages/hoverboard/img3.png"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [600, 1200, 2000, 4000],
             "pid": "hoverboard1",
             "desc": ["desc1", "desc2"],
@@ -314,6 +325,7 @@
               "productimages/Delllatitude7490/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [3000, 8500, 16000],
             "pid": "laptop1",
             "desc": [
@@ -342,6 +354,7 @@
               "productimages/Delllatitude5400/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2800, 8000, 15000],
             "pid": "laptop2",
             "desc": [
@@ -370,6 +383,7 @@
               "productimages/hpelitebook840rg4/img3.jpeg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [3000, 8500, 16000],
             "pid": "laptop3",
             "desc": [
@@ -399,6 +413,7 @@
               "productimages/hpprobook440g4/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2800, 8000, 15000],
             "pid": "laptop4",
             "desc": [
@@ -427,6 +442,7 @@
               "productimages/Lenovothinkpadt480/img3.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [3000, 8500, 16000],
             "pid": "laptop5",
             "desc": [
@@ -455,6 +471,7 @@
               "productimages/Dell3480/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2800, 8000, 15000],
             "pid": "laptop6",
             "desc": [
@@ -483,6 +500,7 @@
             "name": "LED - 42 Inches",
             "image": ["productimages/Tv42/42-inch-sony-led-tv-500x500.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [1000, 3000, 5000, 17000],
             "pid": "tv1",
             "desc": ["42 inch LED TV"],
@@ -507,6 +525,7 @@
             "name": "Window AC",
             "image": ["productimages/windowac/img1.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [9000],
             "pid": "ac1",
             "desc": ["Price mentioned is for a Season"],
@@ -526,6 +545,7 @@
             "name": "Split AC",
             "image": ["productimages/splitac1/img1.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [12000],
             "pid": "ac2",
             "desc": ["Price mentioned is for a Season"],
@@ -550,6 +570,7 @@
             "name": "Cooler 40L capacity",
             "image": ["productimages/cooler1/cooler1.png"],
             "limit": 1,
+            "available": 1,
             "prices": [7000],
             "pid": "cooler1",
             "desc": ["", ""],
@@ -574,6 +595,7 @@
             "name": "Projector",
             "image": ["productimages/projector1/img1.webp"],
             "limit": 1,
+            "available": 1,
             "prices": [2000, 4000, 7000, 15000],
             "pid": "projector1",
             "desc": ["", ""],
@@ -601,6 +623,7 @@
               "productimages/vaccumecleaner/vaccu clean.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [300, 800, 1500, 2000],
             "pid": "vaccumcleaner1",
             "desc": ["", ""],
@@ -625,6 +648,7 @@
             "name": "Air Fryer",
             "image": ["productimages/airfryer/air fryer.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [300, 800, 1500, 2000],
             "pid": "airfryer1",
             "desc": ["", ""],
@@ -658,6 +682,7 @@
               "productimages/diamondbed/dia 3.png"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2400, 7200, 13500, 25500],
             "pid": "bed1",
             "desc": [
@@ -686,6 +711,7 @@
               "productimages/niwarbed/niwar1.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2400, 7200, 13500, 25500],
             "pid": "bed2",
             "desc": [
@@ -710,6 +736,7 @@
             "name": "Solid Sheesham Wood Tile Bed King Size 6X6.5 feet",
             "image": ["productimages/tilebed/tile bed.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [2400, 7200, 13500, 25500],
             "pid": "bed3",
             "desc": [
@@ -739,6 +766,7 @@
               "productimages/kuberbed/kuber 3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [2400, 7200, 13500, 25500],
             "pid": "bed4",
             "desc": [
@@ -763,6 +791,7 @@
             "name": "Solid Sheesham Wood Dilla Bed King Size 6X6.5 feet",
             "image": ["productimages/dillabed/2 daala bed.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [2400, 7200, 13500, 25500],
             "pid": "bed5",
             "desc": [
@@ -795,6 +824,7 @@
               "productimages/classystudytable/IMG-20240218-WA0041.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [490, 1450, 2800, 5000],
             "pid": "studytable1",
             "desc": [
@@ -821,6 +851,7 @@
               "productimages/singledrawerstudytable/img2.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [440, 1350, 2600, 4800],
             "pid": "studytable2",
             "desc": [
@@ -846,6 +877,7 @@
               "productimages/singledrawerxleg/71uBHJL163L._SL1500_.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [440, 1350, 2600, 4800],
             "pid": "studytable3",
             "desc": [
@@ -873,6 +905,7 @@
               "productimages/curvestudytable/img3.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [490, 1450, 2800, 5000],
             "pid": "studytable4",
             "desc": [
@@ -899,6 +932,7 @@
               "productimages/doubledrawerstudytable/img2.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [490, 1450, 2800, 5000],
             "pid": "studytable5",
             "desc": [
@@ -925,6 +959,7 @@
               "productimages/cabinetstudytable/img2.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [490, 1450, 2800, 5000],
             "pid": "studytable6",
             "desc": [
@@ -958,6 +993,7 @@
               "productimages/tiledining/img4.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [1500, 4200, 7700, 14000],
             "pid": "dining1",
             "desc": [
@@ -982,6 +1018,7 @@
             "name": "CNC Sheesham Wood Dining Table Set 4-Seater",
             "image": ["productimages/cncdining/img1.jpeg"],
             "limit": 1,
+            "available": 1,
             "prices": [1350, 4000, 7500, 14000],
             "pid": "dining2",
             "desc": [
@@ -1009,6 +1046,7 @@
               "productimages/solidurban4seaterdining/img2.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [1350, 4000, 7500, 14000],
             "pid": "dining3",
             "desc": [
@@ -1042,6 +1080,7 @@
               "productimages/zigzagbookshelf/img3.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [440, 1350, 2600, 4800],
             "pid": "bookshelf1",
             "desc": [
@@ -1068,6 +1107,7 @@
               "productimages/ZigZagCeramicabookshelf/img2.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [490, 1350, 2600, 4800],
             "pid": "bookshelf2",
             "desc": [
@@ -1091,6 +1131,7 @@
             "name": "Solid Sheesham Wood Fanti Bookshelf",
             "image": ["productimages/fantibookshelf/img1.webp"],
             "limit": 1,
+            "available": 1,
             "prices": [820, 2400, 4800, 9000],
             "pid": "bookshelf3",
             "desc": [
@@ -1117,6 +1158,7 @@
               "productimages/cncbookshelf/img2.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [820, 2400, 4800, 9000],
             "pid": "bookshelf4",
             "desc": [
@@ -1143,6 +1185,7 @@
               "productimages/ironjalibookshelf/img2.webp"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [820, 2400, 4800, 9000],
             "pid": "bookshelf5",
             "desc": ["Material : Soild Sheesham Wood", "Finish : Honey Finish"],
@@ -1162,6 +1205,7 @@
             "name": "Solid Sheesham Wood Round Bookshelf",
             "image": ["productimages/roundbookshelf/img1.jpeg"],
             "limit": 1,
+            "available": 1,
             "prices": [790, 2300, 4700, 8000],
             "pid": "bookshelf6",
             "desc": [
@@ -1188,8 +1232,12 @@
         "products": [
           {
             "name": "Sofa 3 Seater Solid Wood",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/sofa3seaterwooden/img1.jpg",
+              "productimages/sofa3seaterwooden/img2.jpg"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [1500, 4500, 8000, 15000],
             "pid": "sofa1",
             "desc": [
@@ -1211,8 +1259,12 @@
           },
           {
             "name": "Sofa 3 Seater Upholstrey Fabric",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/sofa3seaterfabric/img1.webp",
+              "productimages/sofa3seaterfabric/img2.webp"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [1500, 4500, 8000, 15000],
             "pid": "sofa2",
             "desc": [
@@ -1234,8 +1286,13 @@
           },
           {
             "name": "Sofa 3 + 1 + 1",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/sofa3+1+1wooden/img1.jpg",
+              "productimages/sofa3+1+1wooden/img2.jpg",
+              "productimages/sofa3+1+1wooden/img3.jpg"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [2200, 6600, 12800, 25000],
             "pid": "sofa3",
             "desc": [
@@ -1257,8 +1314,14 @@
           },
           {
             "name": "Sofa 3 + 2",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/sofa3+2/img1.webp",
+              "productimages/sofa3+2/img2.webp",
+              "productimages/sofa3+2/img3.webp",
+              "productimages/sofa3+2/img4.webp"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [2200, 6600, 12800, 25000],
             "pid": "sofa4",
             "desc": [
@@ -1280,8 +1343,12 @@
           },
           {
             "name": "L-Shape Lounger Upholstrey Sofa",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/sofalshape/img1.webp",
+              "productimages/sofalshape/img2.webp"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [2200, 6600, 12800, 25000],
             "pid": "sofa5",
             "desc": [
@@ -1304,8 +1371,12 @@
           },
           {
             "name": "Sofa 2-Seater",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/sofa2seaterwooden/img1.jpg",
+              "productimages/sofa2seaterwooden/img2.jpg"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [1500, 4500, 8000, 15000],
             "pid": "sofa6",
             "desc": [
@@ -1334,6 +1405,7 @@
             "name": "Round 1 + 4 Solid Wood Centre Table",
             "image": ["productimages/centretableround/rounf coffee table.jpeg"],
             "limit": 1,
+            "available": 1,
             "prices": [600, 1800, 3500, 7000],
             "pid": "centretable1",
             "desc": [
@@ -1361,6 +1433,7 @@
               "productimages/centretablesquare/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [750, 2200, 4300, 8500],
             "pid": "centretable2",
             "desc": [
@@ -1388,6 +1461,7 @@
               "productimages/centretablestorage/img3.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [750, 2200, 4300, 8500],
             "pid": "centretable3",
             "desc": [
@@ -1424,6 +1498,7 @@
               "productimages/mayahookah/img2.jpg"
             ],
             "limit": 5,
+            "available": 1,
             "prices": [500, 900, 1400, 2000],
             "pid": "hookah1",
             "desc": ["", ""],
@@ -1446,6 +1521,7 @@
               "productimages/mayasmallhookah/img2.jpg"
             ],
             "limit": 1,
+            "available": 1,
             "prices": [300, 700, 1200, 1500],
             "pid": "hookah2",
             "desc": ["", ""],
@@ -1468,8 +1544,13 @@
         "products": [
           {
             "name": "Dj Lights",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/djlights/img1.jpg",
+              "productimages/djlights/img2.webp",
+              "productimages/djlights/img3.jpg"
+            ],
             "limit": 5,
+            "available": 1,
             "prices": [400, 700, 1200, 1800],
             "pid": "djlight1",
             "desc": ["", ""],
@@ -1492,8 +1573,12 @@
         "products": [
           {
             "name": "Barbeque",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/barbaque/img1.webp",
+              "productimages/barbaque/img2.webp"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [500, 1000, 2000, 4500],
             "pid": "barbaque1",
             "desc": ["", ""],
@@ -1511,8 +1596,12 @@
           },
           {
             "name": "Barbeque Small",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/barbaquesmall/img1.jpg",
+              "productimages/barbaquesmall/img2.jpg"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [400, 900, 1800, 4000],
             "pid": "barbaque2",
             "desc": ["", ""],
@@ -1535,8 +1624,12 @@
         "products": [
           {
             "name": "Beer Tower",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/beertower/img1.jpg",
+              "productimages/beertower/img2.jpg"
+            ],
             "limit": 5,
+            "available": 1,
             "prices": [400, 900, 1800, 4000],
             "pid": "beertower1",
             "desc": ["", ""],
@@ -1559,8 +1652,12 @@
         "products": [
           {
             "name": "",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/dispenser/img1.jpg",
+              "productimages/dispenser/img2.jpg"
+            ],
             "limit": 3,
+            "available": 1,
             "prices": [1000, 1500, 2000, 4000],
             "pid": "dispenser1",
             "desc": ["", ""],
@@ -1588,8 +1685,12 @@
         "products": [
           {
             "name": "Tent Small",
-            "image": ["", "", ""],
+            "image": [
+              "productimages/tentsmall/img1.avif",
+              "productimages/tentsmall/img2.avif"
+            ],
             "limit": 1,
+            "available": 1,
             "prices": [300, 700, 1000, 1500],
             "pid": "tent1",
             "desc": ["For Two Person", ""],
@@ -1607,8 +1708,9 @@
           },
           {
             "name": "Tent Medium",
-            "image": ["", "", ""],
+            "image": ["productimages/tentbig/img1.avif"],
             "limit": 1,
+            "available": 1,
             "prices": [400, 800, 1200, 1800],
             "pid": "tent2",
             "desc": ["", ""],
@@ -1631,8 +1733,9 @@
         "products": [
           {
             "name": "Sleeping Bags",
-            "image": ["", "", ""],
+            "image": ["productimages/sleepingbag/img1.jpg"],
             "limit": 1,
+            "available": 1,
             "prices": [100, 300, 500, 1500],
             "pid": "sleepingbags1",
             "desc": ["", ""],
@@ -1655,8 +1758,9 @@
         "products": [
           {
             "name": " Baby's Car Seats",
-            "image": ["", "", ""],
+            "image": ["productimages/babycarseat/img1.webp"],
             "limit": 1,
+            "available": 1,
             "prices": [500, 1000, 2000, 3000],
             "pid": "babycarseat1",
             "desc": ["", ""],
@@ -1674,11 +1778,12 @@
           },
           {
             "name": "Infant's Car Seats",
-            "image": ["", "", ""],
+            "image": ["productimages/infantcarseat/img1.webp"],
             "limit": 1,
+            "available": 1,
             "prices": [500, 1000, 2000, 3000],
             "pid": "babycarseat2",
-            "desc": ["", ""],
+            "desc": [""],
             "pricetype": 2,
             "refundableprice": 1000,
             "options": [
@@ -1698,8 +1803,9 @@
         "products": [
           {
             "name": "Baby Carrier",
-            "image": ["", "", ""],
+            "image": ["productimages/babycarrier/img1.webp"],
             "limit": 1,
+            "available": 1,
             "prices": [250, 500, 700, 1000],
             "pid": "babycarrier1",
             "desc": ["", ""],

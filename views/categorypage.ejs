@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png">
+    <title></title>
+    <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +33,6 @@
         left: 0;
         background-color: var(--bg1);
         z-index: 1;
-        /* background-image: url(images/sleep\ bag.jpg); */
       }
       .secnav button {
         position: relative;
@@ -132,12 +133,13 @@
       .productgrid .card .title {
         position: relative;
         height: 30px;
-        width: 70%;
+        min-width: 70%;
         background-color: var(--theme);
         color: white;
         display: grid;
         place-content: center;
         border-radius: 10px;
+        padding-inline: 10px;
       }
       .productgrid .card .title::before {
         content: "";
