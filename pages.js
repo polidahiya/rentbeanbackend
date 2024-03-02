@@ -25,6 +25,24 @@ router.get("/subcategory", (req, res) => {
 router.get("/admin", (req, res) => {
   res.render("admin.ejs");
 });
+router.get("/aboutus", (req, res) => {
+  res.render("aboutus.ejs");
+});
+router.get("/contactus", (req, res) => {
+  res.render("contactus.ejs");
+});
+router.get("/decumentsrequired", (req, res) => {
+  res.render("decumentsrequired.ejs");
+});
+router.get("/shippingpolicy", (req, res) => {
+  res.render("shippingpolicy.ejs");
+});
+router.get("/cancelationandreturnpolicy", (req, res) => {
+  res.render("cancelationandreturnpolicy.ejs");
+});
+router.get("/privacypolicy", (req, res) => {
+  res.render("privacypolicy.ejs");
+});
 
 function getdata() {
   try {

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
+    <title>Contact Us</title>
+    <meta name="image" content="logo&ui/favicon.png" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- nav -->
+    <link rel="stylesheet" href="main.css" />
+    <!-- local styles -->
+    <style>
+      .secnav {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px 40px;
+        position: sticky;
+        top: 60px;
+        left: 0;
+        background-color: var(--bg1);
+        z-index: 1;
+      }
+      .secnav button {
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1;
+        background-color: var(--theme);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .secnav button svg {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        height: calc(100% - 10px);
+        background-color: white;
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding: 5px;
+      }
+      .secnav button div {
+        width: 0;
+        overflow: hidden;
+        color: white;
+      }
+      .secnav button:hover {
+        aspect-ratio: 3.5/1;
+      }
+      .secnav button:hover div {
+        width: 100%;
+      }
+      .secnav span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        justify-self: center;
+        align-self: center;
+        font-size: 20px;
+      }
+      /*  */
+      .bg {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        /* left: 0; */
+      }
+      .cardcontainer {
+        position: relative;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+      .cardcontainer .box {
+        height: 100%;
+      }
+      .cardcontainer .whitebox {
+        background-color: white;
+      }
+      .cardcontainer .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60%;
+        aspect-ratio: 4/3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        text-align: center;
+        padding: 10px 50px;
+        box-sizing: border-box;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
+        animation: upanddown 5s infinite;
+      }
+      @keyframes upanddown {
+        0% {
+          transform: translate(-50%, -50%);
+        }
+        50% {
+          transform: translate(-50%, -53%);
+        }
+        100% {
+          transform: translate(-50%, -50%);
+        }
+      }
+      .cardcontainer .card span {
+        display: flex;
+        gap: 5px;
+        margin-top: 10px;
+        align-items: center;
+      }
+      .cardcontainer .card span svg {
+        height: 20px;
+      }
+      .cardcontainer .card span a {
+        text-decoration: none;
+        color: var(--theme);
+      }
+      @media screen and (width<450px) {
+        .secnav {
+          padding: 10px 20px;
+        }
+        .secnav button:hover {
+          aspect-ratio: 1;
+        }
+        .secnav button:hover div {
+          width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logolink">
+        <img src="logo&ui/3dlogo.png" alt="" class="logodesk" />
+      </a>
+      <a href="cart" class="cart">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M2.23737 2.28845C1.84442 2.15746 1.41968 2.36983 1.28869 2.76279C1.15771 3.15575 1.37008 3.58049 1.76303 3.71147L2.02794 3.79978C2.70435 4.02524 3.15155 4.17551 3.481 4.32877C3.79296 4.47389 3.92784 4.59069 4.01426 4.71059C4.10068 4.83049 4.16883 4.99538 4.20785 5.33722C4.24907 5.69823 4.2502 6.17 4.2502 6.883L4.2502 9.55484C4.25018 10.9224 4.25017 12.0247 4.36673 12.8917C4.48774 13.7918 4.74664 14.5497 5.34855 15.1516C5.95047 15.7535 6.70834 16.0124 7.60845 16.1334C8.47542 16.25 9.57773 16.25 10.9453 16.25H18.0002C18.4144 16.25 18.7502 15.9142 18.7502 15.5C18.7502 15.0857 18.4144 14.75 18.0002 14.75H11.0002C9.56479 14.75 8.56367 14.7484 7.80832 14.6468C7.07455 14.5482 6.68598 14.3677 6.40921 14.091C6.17403 13.8558 6.00839 13.5398 5.9034 13H16.0222C16.9817 13 17.4614 13 17.8371 12.7522C18.2128 12.5045 18.4017 12.0636 18.7797 11.1817L19.2082 10.1817C20.0177 8.2929 20.4225 7.34849 19.9779 6.67422C19.5333 5.99996 18.5058 5.99996 16.4508 5.99996H5.74526C5.73936 5.69227 5.72644 5.41467 5.69817 5.16708C5.64282 4.68226 5.52222 4.2374 5.23112 3.83352C4.94002 3.42965 4.55613 3.17456 4.1137 2.96873C3.69746 2.7751 3.16814 2.59868 2.54176 2.38991L2.23737 2.28845Z"
+              fill="white"
+            ></path>
+            <path
+              d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
+              fill="white"
+            ></path>
+            <path
+              d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
+              fill="white"
+            ></path>
+          </g>
+        </svg>
+        <span>Cart</span>
+        <div class="cartcounter">1</div>
+      </a>
+      <svg
+        class="menu"
+        onclick="showmenu()"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <g id="Menu / Menu_Alt_05">
+            <path
+              id="Vector"
+              d="M5 17H13M5 12H19M11 7H19"
+              stroke="var(--theme)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </g>
+      </svg>
+    </nav>
+    <div class="desksidebar">
+      <div class="locationcontainer" onclick="showlocations()">
+        <img src="logo&ui/locationtheme.svg" alt="" />
+        <span>Choose location</span>
+      </div>
+    </div>
+    <div class="locationchoose activelocationchoose">
+      <button onclick="hidelocations()">X</button>
+      <div class="locations">Delhi</div>
+      <div class="locations">Gurgaon</div>
+      <div class="locations">Noida</div>
+    </div>
+    <div class="secnav">
+      <button onclick="window.history.back()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M7.68473 7.33186C8.07526 6.94134 8.07526 6.30817 7.68473 5.91765C7.29421 5.52712 6.66105 5.52712 6.27052 5.91765L1.60492 10.5832C0.823873 11.3643 0.823872 12.6306 1.60492 13.4117L6.27336 18.0801C6.66388 18.4706 7.29705 18.4706 7.68757 18.0801C8.0781 17.6896 8.0781 17.0564 7.68757 16.6659L4.02154 12.9998L22 12.9998C22.5523 12.9998 23 12.5521 23 11.9998C23 11.4476 22.5523 10.9998 22 10.9998L4.01675 10.9998L7.68473 7.33186Z"
+              fill="rgb(82, 82, 82)"
+            ></path>
+          </g>
+        </svg>
+        <div>Back</div>
+      </button>
+      <span>Contact Us </span>
+    </div>
+    <img src="logo&ui/bg1.jpeg" alt="" class="bg" />
+    <div class="cardcontainer">
+      <div class="box"></div>
+      <div class="box whitebox"></div>
+      <div class="card">
+        We are here to help! <br />
+        <span>
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M6.5 17C5.68209 17 4.95592 16.6072 4.49982 16H13.5C15.433 16 17 14.433 17 12.5V6.5C17.6072 6.9561 18 7.68209 18 8.5V12.5C18 14.9853 15.9853 17 13.5 17H6.5Z"
+                fill="rgb(214, 142 ,67)"
+              ></path>
+              <path
+                d="M9.23705 2.05976C9.08906 1.98008 8.91094 1.98008 8.76295 2.05976L3.0518 5.135C2.73825 5.30384 2.48182 5.5494 2.30067 5.8413L2.71661 6.04927L8.99999 8.94929L15.2753 6.053L15.6902 5.82669C15.5096 5.54121 15.2565 5.30101 14.9482 5.135L9.23705 2.05976Z"
+                fill="rgb(214, 142 ,67)"
+              ></path>
+              <path
+                d="M15.9976 6.79808L15.7394 6.93892C15.7296 6.94426 15.7196 6.94928 15.7095 6.95395L9.20952 9.95395C9.07657 10.0153 8.92341 10.0153 8.79046 9.95395L2.29046 6.95395L2.27638 6.94719L2.00184 6.80992C2.00062 6.83849 2 6.86717 2 6.89594V12.5C2 13.8807 3.11929 15 4.5 15H13.5C14.8807 15 16 13.8807 16 12.5V6.89594C16 6.8632 15.9992 6.83057 15.9976 6.79808Z"
+                fill="rgb(214, 142 ,67)"
+              ></path>
+            </g>
+          </svg>
+          <a href="mailto:vs8287802215@gmail.com">Rentbean.in</a>
+        </span>
+        <span>
+          Rentbean.in - House No-626, Gurgaon Sector 39, Gurgaon - 122001
+          (Gurgaon Sector 39)</span
+        >
+      </div>
+    </div>
+    <div style="background-color: white">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nesciunt
+      consectetur mollitia sequi beatae quod alias recusandae est provident
+      voluptatum, id harum cumque magnam enim! Quam id mollitia natus facilis
+      voluptates eveniet, qui corrupti est magnam soluta, porro illum sequi
+      tempora accusantium voluptatum repellendus neque a minus velit corporis
+      saepe asperiores non distinctio! Nobis alias fugit commodi deleniti
+      quibusdam eos porro nostrum dolorum, facere ab ipsum inventore quo
+      ratione, non pariatur consequuntur reiciendis minima explicabo eaque aut
+      rerum architecto consequatur accusantium repudiandae! Deserunt laboriosam
+      eius officiis culpa numquam fuga tenetur repudiandae qui repellat, maxime
+      quia tempore rerum beatae quis architecto obcaecati, consectetur
+      voluptatibus perferendis. Magni amet quia officiis consequatur corporis a
+      quas excepturi natus molestias reprehenderit, laboriosam voluptatem
+      tenetur ducimus eaque voluptatibus eligendi, molestiae facere quasi
+      deserunt? Sed unde animi cupiditate rem sunt minus nihil fugiat dolor
+      laudantium corporis eos similique blanditiis esse molestiae porro
+      voluptate quasi incidunt, ad ipsa odit praesentium repudiandae! Deserunt
+      labore alias molestias dolorem esse, ut laudantium debitis tenetur quos
+      atque aut at porro assumenda perspiciatis aperiam. Impedit iusto velit
+      laborum dolorem sed, nemo vel beatae esse a porro praesentium ipsa eos
+      repellendus nam delectus? Voluptas facilis eaque id deserunt incidunt. Eos
+      accusamus cum velit, amet quo similique. Quae rerum, laudantium itaque
+      corporis praesentium, nesciunt mollitia earum eaque voluptatum dicta nam
+      aliquid amet velit molestiae. Architecto error ducimus esse ipsam.
+      Nesciunt asperiores, ipsum, alias libero voluptatum porro expedita
+      deserunt vel laborum omnis voluptate quidem? Aliquid distinctio quidem
+      natus? Rerum facilis nulla cum autem accusantium non praesentium atque
+      nemo, laudantium ipsa repellat dicta necessitatibus maxime, dolore veniam
+      asperiores voluptatem odit rem. At, voluptates beatae sit rerum,
+      accusantium fugit ipsam blanditiis consectetur doloremque molestiae velit
+      nam officiis aut alias, neque eaque saepe aspernatur ut ratione eum
+      repellendus quo deserunt adipisci! Aperiam nostrum aspernatur impedit
+      dolores, iure, suscipit repellendus recusandae quibusdam animi dicta
+      facere, quo mollitia doloremque praesentium voluptatem fuga quam sint
+      ratione quod? Illum quidem laborum obcaecati vitae, alias recusandae
+      laudantium veritatis tenetur harum omnis reiciendis aut non! Cumque,
+      laborum ullam fuga cum veritatis provident. Officiis amet quidem eligendi
+      nobis saepe voluptatem, similique quae accusantium iste, quibusdam hic
+      voluptas architecto odit, harum dignissimos veritatis illum nam? Nisi
+      veritatis illo distinctio error corrupti a neque ea inventore? Facere
+      accusantium repellat, veritatis recusandae repudiandae quas eos
+      dignissimos excepturi est nostrum necessitatibus deserunt cupiditate non
+      facilis veniam in vel et officiis sed corporis illum accusamus. Dolor
+      eaque accusamus totam itaque placeat possimus tenetur aut aliquid debitis
+      iusto. Reprehenderit explicabo natus perspiciatis aperiam quia at
+      temporibus nemo eveniet sequi a ratione tempore, ea blanditiis modi quo
+      illum voluptatem quis? Sint, repellendus asperiores ab minus nam
+      voluptates fuga dignissimos officiis. Velit repellendus ipsam autem
+      placeat esse unde eligendi similique nemo deserunt perspiciatis. Ratione
+      saepe quia vel quas error culpa tenetur, veritatis molestias dolorum
+      accusantium eius repellat sed sapiente. Eum, minus. Repellendus aut harum,
+      quaerat rem expedita suscipit tempora possimus incidunt? Nostrum impedit
+      doloremque maxime sit rerum excepturi repellat velit beatae eius voluptas
+      mollitia, ipsum cumque. Ut hic rerum temporibus dolore consectetur illo!
+      Et.
+    </div>
+    <!-- nav script -->
+    <script src="nav.js"></script>
+    <!-- main -->
+    <script>
+      window.onscroll = (e) => {
+        if (window.scrollY <= 10) {
+          document.querySelector(".secnav").style.boxShadow = "unset";
+        } else {
+          document.querySelector(".secnav").style.boxShadow =
+            "0 2px 10px var(--theme20)";
+        }
+      };
+    </script>
+  </body>
+</html>

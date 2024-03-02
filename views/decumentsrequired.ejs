@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
+    <title>Documents Required</title>
+    <meta name="image" content="logo&ui/favicon.png" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- nav -->
+    <link rel="stylesheet" href="main.css" />
+    <!-- local styles -->
+    <style>
+      .secnav {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px 40px;
+        position: sticky;
+        top: 60px;
+        left: 0;
+        background-color: var(--bg1);
+        z-index: 1;
+      }
+      .secnav button {
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1;
+        background-color: var(--theme);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .secnav button svg {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        height: calc(100% - 10px);
+        background-color: white;
+        border-radius: 50%;
+        box-sizing: border-box;
+        padding: 5px;
+      }
+      .secnav button div {
+        width: 0;
+        overflow: hidden;
+        color: white;
+      }
+      .secnav button:hover {
+        aspect-ratio: 3.5/1;
+      }
+      .secnav button:hover div {
+        width: 100%;
+      }
+      .secnav span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        justify-self: center;
+        align-self: center;
+        font-size: 20px;
+      }
+      /*  */
+      .maincontainer {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        padding: 10px;
+        box-sizing: border-box;
+        min-height: calc(100vh - 120px);
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .maincontainer .cards {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        aspect-ratio: 1;
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
+        border: 1px solid var(--theme20);
+      }
+      .maincontainer .cards .heading {
+        position: relative;
+        text-align: center;
+        height: 50px;
+        width: 100%;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      .maincontainer .cards .heading svg {
+        position: absolute;
+        left: 0;
+        height: 50px;
+        width: 50px;
+      }
+      .maincontainer .cards li {
+        opacity: 0.7;
+        font-size: 14px;
+      }
+      .note2 {
+        font-size: 11px;
+        opacity: 0.6;
+      }
+      .note {
+        margin-top: auto;
+        font-size: 11px;
+        opacity: 0.6;
+      }
+      .note span {
+        color: var(--theme);
+      }
+      @media screen and (width<450px) {
+        .secnav {
+          padding: 10px 20px;
+        }
+        .secnav button:hover {
+          aspect-ratio: 1;
+        }
+        .secnav button:hover div {
+          width: 0;
+        }
+        .maincontainer {
+          margin-top: 40px;
+          margin-bottom: 40px;
+          gap: 20px;
+        }
+        .maincontainer .cards {
+          width: calc(100% - 30px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logolink">
+        <img src="logo&ui/3dlogo.png" alt="" class="logodesk" />
+      </a>
+      <a href="cart" class="cart">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M2.23737 2.28845C1.84442 2.15746 1.41968 2.36983 1.28869 2.76279C1.15771 3.15575 1.37008 3.58049 1.76303 3.71147L2.02794 3.79978C2.70435 4.02524 3.15155 4.17551 3.481 4.32877C3.79296 4.47389 3.92784 4.59069 4.01426 4.71059C4.10068 4.83049 4.16883 4.99538 4.20785 5.33722C4.24907 5.69823 4.2502 6.17 4.2502 6.883L4.2502 9.55484C4.25018 10.9224 4.25017 12.0247 4.36673 12.8917C4.48774 13.7918 4.74664 14.5497 5.34855 15.1516C5.95047 15.7535 6.70834 16.0124 7.60845 16.1334C8.47542 16.25 9.57773 16.25 10.9453 16.25H18.0002C18.4144 16.25 18.7502 15.9142 18.7502 15.5C18.7502 15.0857 18.4144 14.75 18.0002 14.75H11.0002C9.56479 14.75 8.56367 14.7484 7.80832 14.6468C7.07455 14.5482 6.68598 14.3677 6.40921 14.091C6.17403 13.8558 6.00839 13.5398 5.9034 13H16.0222C16.9817 13 17.4614 13 17.8371 12.7522C18.2128 12.5045 18.4017 12.0636 18.7797 11.1817L19.2082 10.1817C20.0177 8.2929 20.4225 7.34849 19.9779 6.67422C19.5333 5.99996 18.5058 5.99996 16.4508 5.99996H5.74526C5.73936 5.69227 5.72644 5.41467 5.69817 5.16708C5.64282 4.68226 5.52222 4.2374 5.23112 3.83352C4.94002 3.42965 4.55613 3.17456 4.1137 2.96873C3.69746 2.7751 3.16814 2.59868 2.54176 2.38991L2.23737 2.28845Z"
+              fill="white"
+            ></path>
+            <path
+              d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z"
+              fill="white"
+            ></path>
+            <path
+              d="M16.5 18.0001C17.3284 18.0001 18 18.6716 18 19.5001C18 20.3285 17.3284 21.0001 16.5 21.0001C15.6716 21.0001 15 20.3285 15 19.5001C15 18.6716 15.6716 18.0001 16.5 18.0001Z"
+              fill="white"
+            ></path>
+          </g>
+        </svg>
+        <span>Cart</span>
+        <div class="cartcounter">1</div>
+      </a>
+      <svg
+        class="menu"
+        onclick="showmenu()"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <g id="Menu / Menu_Alt_05">
+            <path
+              id="Vector"
+              d="M5 17H13M5 12H19M11 7H19"
+              stroke="var(--theme)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </g>
+      </svg>
+    </nav>
+    <div class="desksidebar">
+      <div class="locationcontainer" onclick="showlocations()">
+        <img src="logo&ui/locationtheme.svg" alt="" />
+        <span>Choose location</span>
+      </div>
+    </div>
+    <div class="locationchoose activelocationchoose">
+      <button onclick="hidelocations()">X</button>
+      <div class="locations">Delhi</div>
+      <div class="locations">Gurgaon</div>
+      <div class="locations">Noida</div>
+    </div>
+    <div class="secnav">
+      <button onclick="window.history.back()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M7.68473 7.33186C8.07526 6.94134 8.07526 6.30817 7.68473 5.91765C7.29421 5.52712 6.66105 5.52712 6.27052 5.91765L1.60492 10.5832C0.823873 11.3643 0.823872 12.6306 1.60492 13.4117L6.27336 18.0801C6.66388 18.4706 7.29705 18.4706 7.68757 18.0801C8.0781 17.6896 8.0781 17.0564 7.68757 16.6659L4.02154 12.9998L22 12.9998C22.5523 12.9998 23 12.5521 23 11.9998C23 11.4476 22.5523 10.9998 22 10.9998L4.01675 10.9998L7.68473 7.33186Z"
+              fill="rgb(82, 82, 82)"
+            ></path>
+          </g>
+        </svg>
+        <div>Back</div>
+      </button>
+      <span>KYC</span>
+    </div>
+
+    <div class="maincontainer">
+      <div class="cards">
+        <div class="heading">
+          <svg
+            fill="rgb(214, 142 ,67)"
+            viewBox="-2.88 -2.88 29.76 29.76"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="rgb(214, 142 ,67)"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5,21H19a2.006,2.006,0,0,0,2-2V9a2.006,2.006,0,0,0-2-2H17V5a2,2,0,0,0-2-2H9A2,2,0,0,0,7,5V7H5A2.006,2.006,0,0,0,3,9V19A2.006,2.006,0,0,0,5,21ZM9,5.5A.5.5,0,0,1,9.5,5h5a.5.5,0,0,1,.5.5V7H9ZM6,11H18v2H6Zm0,4H18v2H6Z"
+              ></path>
+            </g>
+          </svg>
+          Working Professional
+        </div>
+        <div>Mandatory Documents</div>
+        <ol>
+          <li>Pan Card</li>
+          <li>Selfie</li>
+          <li>Company name and Official Email id</li>
+        </ol>
+        <div class="note">
+          <span> Note:</span> While we appreciate you sharing your documents,
+          please note that Rentbean.in reserves the right to confirm or decline
+          the order on a case by case basis.
+        </div>
+      </div>
+      <div class="cards">
+        <div class="heading">
+          <svg
+            fill="rgb(214, 142 ,67)"
+            height="200px"
+            width="200px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="-38.61 -38.61 374.22 374.22"
+            xml:space="preserve"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <g>
+                <g>
+                  <g>
+                    <path
+                      d="M284.583,276.914h-30.892c-1.702-19.387-5.386-59.954-7.771-75.858c-2.715-18.113-17.518-33.527-36.835-38.357 l-20.107-5.027c-3.25,19.41-20.159,34.253-40.477,34.253s-37.227-14.843-40.477-34.253l-20.107,5.027 c-19.317,4.829-34.121,20.244-36.835,38.357c-2.385,15.904-6.069,56.471-7.771,75.858H12.417 c-5.546,0-10.043,4.497-10.043,10.043c0,5.546,4.497,10.043,10.043,10.043h272.165c5.546,0,10.043-4.497,10.043-10.043 C294.625,281.411,290.13,276.914,284.583,276.914z M227.18,276.914h-14.06v-65.258H83.881v65.258H69.821v-72.288 c0-3.883,3.147-7.03,7.03-7.03h143.3c3.883,0,7.03,3.147,7.03,7.03V276.914z"
+                    ></path>
+                    <path
+                      d="M148.501,114.634c27.103,0,48.125-35.753,48.125-66.509C196.626,18.89,177.735,0,148.501,0s-48.125,18.89-48.125,48.125 C100.376,78.882,121.398,114.634,148.501,114.634z"
+                    ></path>
+                    <path
+                      d="M129.774,124.617c-0.053,7.43-1.516,17.95-8.265,25.567c0,14.883,12.107,27.681,26.991,27.681 c14.884,0,26.991-12.798,26.991-27.681c-6.748-7.617-8.212-18.136-8.263-25.567c-5.86,2.617-12.139,4.078-18.727,4.078 C141.914,128.695,135.634,127.234,129.774,124.617z"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          Self Employed
+        </div>
+        <div>Mandatory Documents</div>
+        <ol>
+          <li>Pan Card</li>
+          <li>Selfie</li>
+          <li>GST number</li>
+        </ol>
+        <div class="note">
+          <span> Note:</span> While we appreciate you sharing your documents,
+          please note that Rentbean.in reserves the right to confirm or decline
+          the order on a case by case basis.
+        </div>
+      </div>
+      <div class="cards">
+        <div class="heading">
+          <svg
+            fill="rgb(214, 142 ,67)"
+            viewBox="0 0 24 24"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#CCCCCC"
+              stroke-width="0.048"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>Freelancer icon</title>
+              <path
+                d="M14.096 3.076l1.634 2.292L24 3.076M5.503 20.924l4.474-4.374-2.692-2.89m6.133-10.584L11.027 5.23l4.022.15M4.124 3.077l.857 1.76 4.734.294m-3.058 7.072l3.497-6.522L0 5.13m7.064 7.485l3.303 3.548 3.643-3.57 1.13-6.652-4.439-.228Z"
+              ></path>
+            </g>
+          </svg>
+          Freelance
+        </div>
+        <div>Mandatory Documents</div>
+        <ol>
+          <li>Pan Card</li>
+          <li>Selfie</li>
+          <li>Bank statement</li>
+        </ol>
+        <div class="note">
+          <span> Note:</span> While we appreciate you sharing your documents,
+          please note that Rentbean.in reserves the right to confirm or decline
+          the order on a case by case basis.
+        </div>
+      </div>
+      <div class="cards">
+        <div class="heading">
+          <svg
+            height="200px"
+            width="200px"
+            version="1.1"
+            id="_x32_"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="-112.64 -112.64 737.28 737.28"
+            xml:space="preserve"
+            fill="rgb(214, 142 ,67)"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <style type="text/css">
+                .st0 {
+                  fill: rgb(214, 142, 67) rgb(214, 142, 67);
+                }
+              </style>
+              <g>
+                <path
+                  class="st0"
+                  d="M116.738,231.551c0,23.245,14.15,43.315,34.513,49.107c15.262,42.368,55.574,70.776,100.582,70.776 s85.32-28.408,100.58-70.776c20.365-5.792,34.515-25.854,34.515-49.107c0-15.691-6.734-30.652-18.061-40.248l1.661-8.921 c0-3.323-0.229-6.568-0.491-9.821l-0.212-2.593l-2.213,1.374c-30.871,19.146-80.885,27.71-116.754,27.71 c-34.85,0-83.895-8.214-114.902-26.568l-2.259-0.59l-0.188,2.554c-0.192,2.632-0.384,5.256-0.357,8.23l1.632,8.649 C123.466,200.923,116.738,215.876,116.738,231.551z"
+                ></path>
+                <path
+                  class="st0"
+                  d="M356.151,381.077c-9.635-5.97-18.734-11.607-26.102-17.43l-0.937-0.738l-0.972,0.691 c-6.887,4.914-31.204,30.17-51.023,51.172l-10.945-21.273l5.697-4.076v-20.854h-40.07v20.854l5.697,4.076l-10.949,21.281 c-19.825-21.009-44.154-46.265-51.034-51.18l-0.973-0.691l-0.937,0.738c-7.368,5.823-16.469,11.46-26.102,17.43 c-30.029,18.61-64.062,39.697-64.062,77.344c0,22.244,52.241,53.579,168.388,53.579c116.146,0,168.388-31.335,168.388-53.579 C420.213,420.774,386.178,399.687,356.151,381.077z"
+                ></path>
+                <path
+                  class="st0"
+                  d="M131.67,131.824c0,18.649,56.118,42.306,119.188,42.306s119.188-23.656,119.188-42.306v-25.706l43.503-17.702 v55.962c-5.068,0.792-8.964,5.186-8.964,10.45c0,4.503,2.966,8.432,7.242,9.852l-8.653,57.111h40.704l-8.651-57.111 c4.27-1.421,7.232-5.35,7.232-9.852c0-5.295-3.919-9.697-9.014-10.466l-0.21-67.197c0.357-0.621,0.357-1.266,0.357-1.607 c0-0.342,0-0.978-0.149-0.978h-0.002c-0.262-2.446-2.011-4.612-4.56-5.652l-11.526-4.72L267.551,3.238 C262.361,1.118,256.59,0,250.858,0s-11.502,1.118-16.69,3.238L72.834,68.936c-2.863,1.172-4.713,3.773-4.713,6.622 c0,2.842,1.848,5.443,4.716,6.63l58.833,23.928V131.824z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          Students
+        </div>
+        <div>Mandatory Documents</div>
+        <ol>
+          <li>Govt id card</li>
+          <li>Profile pic</li>
+          <li>Bank statement</li>
+          <li>College name</li>
+        </ol>
+        <div>Additional Documents</div>
+        <div class="note2">
+          We might also ask for the following docs in some cases
+        </div>
+        <ol>
+          <li>Parents Bank Statement</li>
+          <li>Parents Govt id</li>
+        </ol>
+        <div class="note2">
+          * 6 months Bank Statement might be asked in some cases
+        </div>
+
+        <div class="note">
+          <span> Note:</span> While we appreciate you sharing your documents,
+          please note that Rentbean.in reserves the right to confirm or decline
+          the order on a case by case basis.
+        </div>
+      </div>
+    </div>
+    <!-- nav script -->
+    <script src="nav.js"></script>
+    <!-- main -->
+    <script>
+      window.onscroll = (e) => {
+        if (window.scrollY <= 10) {
+          document.querySelector(".secnav").style.boxShadow = "unset";
+        } else {
+          document.querySelector(".secnav").style.boxShadow =
+            "0 2px 10px var(--theme20)";
+        }
+      };
+    </script>
+  </body>
+</html>

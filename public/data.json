@@ -226,6 +226,38 @@
             "keywords": "rentbean.in,rentbean,rent items in gurgaon, noida ,delhi bicycle rental, bike hire, cycling, rent a bike, city biking, eco-friendly transportation, sightseeing, tourist activities, local commute, cycling tours, explore by bike, pedal power, leisure cycling, urban exploration, bike sharing, outdoor adventure."
           }
         ]
+      },
+      "Home gym": {
+        "image": "images/homegym.jpg",
+        "products": [
+          {
+            "name": "Full Body Vibrator",
+            "image": ["productimages/fullbodyvibrator/img1.jpg"],
+            "limit": 1,
+            "available": 1,
+            "prices": [1000, 2500, 4500],
+            "pid": "homegym1",
+            "desc": [
+              "Vibration machine helps in reflex reactions, burning calories, and fat",
+              "Upgraded ABS shell for durability and stability, can support up to 350 lbs",
+              "Adjustable vibration speed (1 to 99) with remote control, offering variety of exercise modes",
+              "Equipped with 4 anti-slip feet, operates quietly",
+              "Optimizes muscle strength, improves circulation, and helps with weight loss",
+              "Integrated Bluetooth speakers, strong suction rubber feet, and compact design for easy storage"
+            ],
+            "pricetype": 1,
+            "refundableprice": 1500,
+            "options": [
+              {
+                "name": "Quantity",
+                "defaultvalue": "1",
+                "options": ["1"]
+              }
+            ],
+            "metadesc": "Experience the ultimate relaxation and rejuvenation with our full body vibrator machine. This innovative device utilizes advanced vibration technology to provide a deep, penetrating massage that targets every muscle group from head to toe. With adjustable speeds and intensity levels, you can customize your massage experience to suit your preferences and needs. Whether you're looking to relieve tension, improve circulation, or simply unwind after a long day, our vibrating massage machine offers the perfect solution. Its compact and portable design allows you to enjoy a revitalizing massage anytime, anywhere. Say goodbye to stress and fatigue and indulge in the soothing benefits of our full body vibrator machine today.",
+            "keywords": "rentbean.in,rentbean,rent items in gurgaon, noida ,delhi, Full body vibrator, Vibrating massage machine, Whole body vibration device, Oscillating massage device, Multi-speed vibration machine, Therapeutic vibration platform, Muscle relaxation device, Portable vibration massager, Adjustable intensity massager, Vibrating body massager"
+          }
+        ]
       }
     }
   },
@@ -1803,7 +1835,10 @@
         "products": [
           {
             "name": "Baby Carrier",
-            "image": ["productimages/babycarrier/img1.webp"],
+            "image": [
+              "productimages/babycarrier/img1.jpg",
+              "productimages/babycarrier/img2.jpeg"
+            ],
             "limit": 1,
             "available": 1,
             "prices": [250, 500, 700, 1000],
