@@ -275,7 +275,7 @@
               "productimages/ps4/img3.jpg"
             ],
             "limit": 1,
-            "available": 1,
+            "available": 0,
             "prices": [800, 2000, 3000, 5000],
             "pid": "ps41",
             "desc": ["desc1", "desc2"],
@@ -304,7 +304,7 @@
               "productimages/xbox/img3.jpg"
             ],
             "limit": 1,
-            "available": 1,
+            "available": 0,
             "prices": [800, 2000, 3000, 5000],
             "pid": "xbox1",
             "desc": ["desc1", "desc2"],

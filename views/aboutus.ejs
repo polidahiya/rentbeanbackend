@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
-    <title>Contact Us</title>
+    <title>About Us</title>
     <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -75,71 +75,48 @@
         font-size: 20px;
       }
       /*  */
-      .bg {
-        height: 100vh;
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-        position: fixed;
-        z-index: -1;
-        top: 0;
-        /* left: 0; */
-      }
-      .cardcontainer {
-        position: relative;
-        height: 400px;
-        display: flex;
-        flex-direction: column;
-      }
-      .cardcontainer .box {
-        height: 100%;
-      }
-      .cardcontainer .whitebox {
-        background-color: white;
-      }
-      .cardcontainer .card {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 60%;
-        aspect-ratio: 4/3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
+      h1 {
+        background: url(/logo&ui/bg2.jpg);
+        background-size: contain;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
         text-align: center;
-        padding: 10px 50px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 12vw;
+        margin: 0;
+        padding: 50px 0;
         box-sizing: border-box;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.123);
-        animation: upanddown 5s infinite;
+        filter: hue-rotate(0deg);
+        animation: rotatehue 80s infinite alternate;
+
       }
-      @keyframes upanddown {
+      @keyframes rotatehue {
         0% {
-          transform: translate(-50%, -50%);
-        }
-        50% {
-          transform: translate(-50%, -53%);
+          filter: hue-rotate(0deg) saturate(2);
+          background-position: -700px 50%;
+          background-size: 100% 100%;
         }
         100% {
-          transform: translate(-50%, -50%);
+          filter: hue-rotate(360deg) saturate(2);
+          background-position: 700px 50%;
+          background-size: 100% 200%;
         }
       }
-      .cardcontainer .card span {
-        display: flex;
-        gap: 5px;
-        margin-top: 10px;
-        align-items: center;
+      .maincontainer {
+        box-sizing: border-box;
+        padding-inline: 40px;
       }
-      .cardcontainer .card span svg {
-        height: 20px;
+      h3{
+        margin-bottom: 0;
+        opacity: 0.8;
       }
-      .cardcontainer .card span a {
-        text-decoration: none;
-        color: var(--theme);
+      p{
+        opacity: 0.8;
+        margin-top: 5px;
+      }
+      .desc {
+        text-align: center;
       }
       @media screen and (width<450px) {
         .secnav {
@@ -150,6 +127,9 @@
         }
         .secnav button:hover div {
           width: 0;
+        }
+        h1 {
+          font-size: 15vw;
         }
       }
     </style>
@@ -242,49 +222,54 @@
         </svg>
         <div>Back</div>
       </button>
-      <span>Contact Us </span>
+      <span>About Us</span>
     </div>
-    <img src="logo&ui/bg1.jpeg" alt="" class="bg" />
-    <div class="cardcontainer">
-      <div class="box"></div>
-      <div class="box whitebox"></div>
-      <div class="card">
-        We are here to help! <br />
-        <span>
-          <svg
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M6.5 17C5.68209 17 4.95592 16.6072 4.49982 16H13.5C15.433 16 17 14.433 17 12.5V6.5C17.6072 6.9561 18 7.68209 18 8.5V12.5C18 14.9853 15.9853 17 13.5 17H6.5Z"
-                fill="rgb(214, 142 ,67)"
-              ></path>
-              <path
-                d="M9.23705 2.05976C9.08906 1.98008 8.91094 1.98008 8.76295 2.05976L3.0518 5.135C2.73825 5.30384 2.48182 5.5494 2.30067 5.8413L2.71661 6.04927L8.99999 8.94929L15.2753 6.053L15.6902 5.82669C15.5096 5.54121 15.2565 5.30101 14.9482 5.135L9.23705 2.05976Z"
-                fill="rgb(214, 142 ,67)"
-              ></path>
-              <path
-                d="M15.9976 6.79808L15.7394 6.93892C15.7296 6.94426 15.7196 6.94928 15.7095 6.95395L9.20952 9.95395C9.07657 10.0153 8.92341 10.0153 8.79046 9.95395L2.29046 6.95395L2.27638 6.94719L2.00184 6.80992C2.00062 6.83849 2 6.86717 2 6.89594V12.5C2 13.8807 3.11929 15 4.5 15H13.5C14.8807 15 16 13.8807 16 12.5V6.89594C16 6.8632 15.9992 6.83057 15.9976 6.79808Z"
-                fill="rgb(214, 142 ,67)"
-              ></path>
-            </g>
-          </svg>
-          <a href="mailto:letsolvein@gmail.com">Rentbean.in</a>
-        </span>
-        <span>
-          Rentbean.in - Plot no. 626 basement, sector 39 Gurgaon Haryana 122002</span
-        >
-      </div>
+    <h1>Rentbean.in</h1>
+    <div class="maincontainer">
+      <div class="desc"></div>
+      <h3>Our Story</h3>
+      <p>
+        Since our inception in 2016, Rentbean.in has been committed to
+        revolutionizing the way people access the items they need without the
+        burden of ownership. Our journey began with a vision to provide a
+        platform where convenience meets affordability, and we continue to
+        uphold this commitment every day.
+      </p>
+      <h3>What We Offer</h3>
+      <p>
+        Wide Variety: Explore our diverse selection of high-quality products
+        from top brands, carefully curated to cater to your needs.
+      </p>
+      <h3>Convenience:</h3>
+      <p>
+        Rent what you need, when you need it, without the hassles of storage,
+        maintenance, or upfront costs. Enjoy flexible rental options tailored to
+        your schedule and preferences.
+      </p>
+      <h3>Quality Assurance:</h3>
+      <p>
+        All our rental items undergo thorough inspections to ensure they meet
+        our stringent standards of quality and reliability, giving you peace of
+        mind with every rental.
+      </p>
+      <h3>Our Commitment</h3>
+      <p>
+        At Rentbean.in, we prioritize customer satisfaction above all else. Our
+        dedicated team is here to provide you with exceptional service and
+        support throughout your renting journey. Whether you're renting for
+        personal use, events, or business purposes, we're committed to exceeding
+        your expectations at every turn.
+      </p>
+      <h3>Get Started Today</h3>
+      <p>
+        Join the Rentbean.in community today and experience the freedom of
+        renting. Browse our extensive catalog, select your items, and enjoy the
+        convenience of temporary ownership without the long-term commitment. Let
+        Rentbean.in be your trusted partner in making renting easy and
+        accessible for everyone. Thank you for choosing Rentbean.in for all your
+        rental needs. Here's to a simpler, more convenient way of living!
+      </p>
     </div>
-    
     <!-- nav script -->
     <script src="nav.js"></script>
     <!-- main -->
@@ -297,6 +282,19 @@
             "0 2px 10px var(--theme20)";
         }
       };
+      //desc text
+      let text = `Welcome to Rentbean.in, your ultimate destination for hassle-free
+        rentals of fitness equipment, electronics, furniture, and more. Founded
+        in 2016, Rentbean.in is dedicated to simplifying your renting
+        experience, making it convenient, affordable, and enjoyable.`;
+      let i = 0;
+      let timer = setInterval(() => {
+        document.querySelector(".desc").innerHTML += text[i];
+        i++;
+        if (i == text.length) {
+          clearInterval(timer);
+        }
+      }, 50);
     </script>
   </body>
 </html>

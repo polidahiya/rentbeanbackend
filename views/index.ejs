@@ -193,6 +193,7 @@
           <img
             src="/logo&ui/client1.png"
             alt=""
+            loading="lazy"
           />
           <div class="name">Parvesh</div>
           <div class="comment">
@@ -205,6 +206,7 @@
           <img
             src="/logo&ui/client2.png"
             alt=""
+            loading="lazy"
           />
           <div class="name">Rahul</div>
           <div class="comment">
@@ -217,6 +219,7 @@
           <img
             src="/logo&ui/client3.png"
             alt=""
+            loading="lazy"
           />
           <div class="name">Vishal</div>
           <div class="comment">
@@ -229,6 +232,7 @@
           <img
             src="/logo&ui/client4.png"
             alt=""
+            loading="lazy"
           />
           <div class="name">Tarun</div>
           <div class="comment">
@@ -241,6 +245,7 @@
           <img
             src="/logo&ui/client5.png"
             alt=""
+            loading="lazy"
           />
           <div class="name">Sumit</div>
           <div class="comment">
@@ -460,6 +465,9 @@
           for (const key in res) {
             for (const subcat in res[key]["subcat"]) {
               res[key]["subcat"][subcat].products.forEach((product) => {
+                if(product.available==0){
+                  return
+                }
                 productarray.push({
                   product: product,
                   subcat: subcat,

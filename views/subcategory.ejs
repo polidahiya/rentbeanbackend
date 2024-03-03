@@ -105,9 +105,24 @@
         justify-content: center;
         gap: 10px;
         color: var(--headingsvg);
+        overflow: hidden;
       }
       .productgrid .card:hover {
         transform: translateY(-2px);
+      }
+      .productgrid .card .availableornot {
+        position: absolute;
+        z-index: 10;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(0deg,transparent,grey);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        pointer-events: none;
+        display: none;
       }
       .productgrid .card .imgcontainer {
         position: relative;
@@ -311,6 +326,7 @@
               card.href =
                 "productpage?p=" + item.pid + "&subcat=" + product;
               card.innerHTML = `
+              <div class="availableornot" style="display:${item.available==1?"none":"flex"}">Currently unavailable</div>
               <div class="imgcontainer">
                 <div class="loader">
                   <div class="dot-spinner">
