@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="logo&ui/favicon.png" type="image/png">
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title></title>
     <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
@@ -17,11 +17,10 @@
     <link rel="stylesheet" href="imageloading.css" />
     <!-- nav -->
     <link rel="stylesheet" href="main.css" />
+    <!-- footer -->
+    <link rel="stylesheet" href="footer.css" />
     <!-- local styles -->
     <style>
-      body {
-        padding-bottom: 50px;
-      }
       .secnav {
         height: 60px;
         display: flex;
@@ -88,6 +87,7 @@
         flex-wrap: wrap;
         box-sizing: border-box;
         padding: 0 40px;
+        padding-bottom: 40px;
         margin-top: 30px;
       }
       .productgrid .card {
@@ -116,7 +116,7 @@
         inset: 0;
         height: 100%;
         width: 100%;
-        background: linear-gradient(0deg,transparent,grey);
+        background: linear-gradient(0deg, transparent, grey);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -190,6 +190,7 @@
         }
         .productgrid {
           padding: 0 20px;
+          padding-bottom: 20px;
         }
         .productgrid .card {
           width: calc(50% - 40px);
@@ -292,6 +293,9 @@
     </div>
     <!-- product gird -->
     <div class="productgrid"></div>
+    <%- include('footer.ejs') %>
+    <!-- nav script -->
+    <script src="nav.js"></script>
     <!-- main -->
     <script>
       window.onscroll = (e) => {
@@ -313,7 +317,7 @@
       let type2prices = [1, 3, 7, 30]; //days
       let type3prices = [1, 3, 6]; //laptops
       let type4prices = [6]; //ac coolers
-      let pricetypename=["mo","day","mo","season"]
+      let pricetypename = ["mo", "day", "mo", "season"];
       let producttoshow;
       fetch("data.json")
         .then((res) => res.json())
@@ -323,10 +327,11 @@
             res[cat]["subcat"][product]["products"].forEach((item) => {
               let card = document.createElement("a");
               card.classList.add("card");
-              card.href =
-                "productpage?p=" + item.pid + "&subcat=" + product;
+              card.href = "productpage?p=" + item.pid + "&subcat=" + product;
               card.innerHTML = `
-              <div class="availableornot" style="display:${item.available==1?"none":"flex"}">Currently unavailable</div>
+              <div class="availableornot" style="display:${
+                item.available == 1 ? "none" : "flex"
+              }">Currently unavailable</div>
               <div class="imgcontainer">
                 <div class="loader">
                   <div class="dot-spinner">
@@ -345,7 +350,9 @@
                 />
               </div>
               <div class="title">${item.name}</div>
-              <div class="rent">Rent : ₹ <span>${item.prices[0]}</span>/${pricetypename[item.pricetype-1]}</div>
+              <div class="rent">Rent : ₹ <span>${item.prices[0]}</span>/${
+                pricetypename[item.pricetype - 1]
+              }</div>
               `;
               card.querySelector(".imgcontainer img").onload = () => {
                 card.querySelector(".imgcontainer .loader").style.display =
@@ -357,7 +364,5 @@
           }
         });
     </script>
-    <!-- nav script -->
-    <script src="nav.js"></script>
   </body>
 </html>

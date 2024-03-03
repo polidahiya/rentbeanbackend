@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="imageloading.css" />
     <!-- nav -->
     <link rel="stylesheet" href="main.css" />
+     <!-- footer -->
+     <link rel="stylesheet" href="footer.css" />
     <!-- main -->
     <style>
       main {
@@ -784,6 +786,7 @@
       </div>
       <div class="cardscontainer"></div>
     </div>
+    <%- include('footer.ejs') %>
     <!-- images scroll -->
     <script>
       let imagesscrollcont = document.querySelector(".scrollimages");
@@ -1166,10 +1169,10 @@
       let cardscontainer = document.querySelector(".cardscontainer");
 
       pinkupleft.onclick = () => {
-        cardscontainer.scrollLeft -= 200;
+        cardscontainer.scrollLeft -= 400;
       };
       pinkupright.onclick = () => {
-        cardscontainer.scrollLeft += 200;
+        cardscontainer.scrollLeft += 400;
       };
       //
       fetch("data.json")
@@ -1178,9 +1181,12 @@
           for (const cat in res) {
             if (!res[cat]["subcat"][subcat]) continue;
 
-            res[cat]["subcat"][subcat]["products"].forEach((data) => {
+            res[cat]["subcat"][subcat]["products"].forEach((data, index) => {
               let card = document.createElement("div");
               card.classList.add("cards");
+              if (index % 2 == 0) {
+                card.classList.add("snap");
+              }
               card.innerHTML = `
                   <a href="productpage?p=${
                     data.pid

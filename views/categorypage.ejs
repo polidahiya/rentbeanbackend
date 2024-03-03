@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="logo&ui/favicon.png" type="image/png">
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title></title>
     <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
@@ -18,10 +18,9 @@
     <!-- nav -->
     <link rel="stylesheet" href="main.css" />
     <!-- local styles -->
+    <!-- footer -->
+    <link rel="stylesheet" href="footer.css" />
     <style>
-      body {
-        padding-bottom: 50px;
-      }
       .secnav {
         height: 60px;
         display: flex;
@@ -88,6 +87,7 @@
         flex-wrap: wrap;
         box-sizing: border-box;
         padding: 0 40px;
+        padding-bottom: 40px;
         margin-top: 30px;
       }
       .productgrid .card {
@@ -164,6 +164,7 @@
         }
         .productgrid {
           padding: 0 20px;
+          padding-bottom: 20px;
         }
         .productgrid .card {
           width: calc(50% - 40px);
@@ -263,6 +264,9 @@
     </div>
     <!-- product gird -->
     <div class="productgrid"></div>
+    <%- include('footer.ejs') %>
+    <!-- nav script -->
+    <script src="nav.js"></script>
     <!-- main -->
     <script>
       window.onscroll = (e) => {
@@ -310,13 +314,11 @@
             card.querySelector(".imgcontainer img").onload = () => {
               card.querySelector(".imgcontainer .loader").style.display =
                 "none";
-                card.querySelector(".imgcontainer img").style.opacity=1
+              card.querySelector(".imgcontainer img").style.opacity = 1;
             };
             document.querySelector(".productgrid").appendChild(card);
           }
         });
     </script>
-    <!-- nav script -->
-    <script src="nav.js"></script>
   </body>
 </html>

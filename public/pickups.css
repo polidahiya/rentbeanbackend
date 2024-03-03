@@ -72,8 +72,6 @@
   min-width: 250px;
   max-width: 250px;
   background-color: white;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   padding: 10px 10px 0px 10px;
   box-sizing: border-box;
   text-decoration: none;
@@ -81,7 +79,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
+.pickupscontainer .snap {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
 .pickupscontainer .cardscontainer .cards .imgcontainer {
   position: relative;
   width: 100%;

@@ -25,9 +25,14 @@ footer .main {
   color: rgb(113, 113, 113);
   font-size: 12px;
   line-height: 30px;
+  display: flex;
+  align-items: center;
 }
 .columns a:hover {
   text-decoration: underline;
+}
+.columns svg{
+  height: 25px;
 }
 footer .secondary {
   display: flex;
@@ -67,4 +72,14 @@ footer .secondary .social a {
 .gotop svg {
   height: 30px;
   aspect-ratio: 1;
+}
+@media screen and (width<450px) {
+  footer .main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .columns a {
+    justify-content: center;
+  }
 }
