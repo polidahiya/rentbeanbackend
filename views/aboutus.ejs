@@ -90,35 +90,44 @@
         padding: 50px 0;
         box-sizing: border-box;
         filter: hue-rotate(0deg);
-        animation: rotatehue 80s infinite alternate;
-
+        animation: rotatehue 200s infinite linear ;
       }
       @keyframes rotatehue {
         0% {
           filter: hue-rotate(0deg) saturate(2);
-          background-position: -700px 50%;
-          background-size: 100% 100%;
+          background-position: -200% 50%;
         }
         100% {
           filter: hue-rotate(360deg) saturate(2);
-          background-position: 700px 50%;
-          background-size: 100% 200%;
+          background-position: 200% 50%;
         }
       }
       .maincontainer {
         box-sizing: border-box;
         padding-inline: 40px;
       }
-      h3{
+      h3 {
         margin-bottom: 0;
         opacity: 0.8;
       }
-      p{
+      p {
         opacity: 0.8;
         margin-top: 5px;
       }
       .desc {
         text-align: center;
+      }
+      .desc .cursor {
+        height: 20px;
+        display: inline-block;
+        width: 2px;
+        background-color: black;
+        transform: translateY(25%);
+        animation: blink 0.5s infinite alternate;
+      }
+      @keyframes blink{
+        0%{opacity: 1;}
+        100%{opacity: 0;}
       }
       @media screen and (width<450px) {
         .secnav {
@@ -228,7 +237,9 @@
     </div>
     <h1>Rentbean.in</h1>
     <div class="maincontainer">
-      <div class="desc"></div>
+      <div class="desc">
+        <div class="cursor"></div>
+      </div>
       <h3>Our Story</h3>
       <p>
         Since our inception in 2016, Rentbean.in has been committed to
@@ -292,7 +303,8 @@
         experience, making it convenient, affordable, and enjoyable.`;
       let i = 0;
       let timer = setInterval(() => {
-        document.querySelector(".desc").innerHTML += text[i];
+        document.querySelectorAll(".cursor").forEach(item=>{item.remove()})
+        document.querySelector(".desc").innerHTML += text[i]+'<div class="cursor"></div>';
         i++;
         if (i == text.length) {
           clearInterval(timer);

@@ -123,7 +123,7 @@ window.addEventListener("popstate", function () {
     if (locationflag) {
       hidelocations();
     } else {
-      menuflag = false
+      menuflag = false;
       showmenu();
     }
   } else if (monthmenuflag) {
@@ -157,7 +157,12 @@ if (localproductarray) {
   numberofcartproduct = 0;
 }
 //
+let available = true;
 function addtocart() {
+  if (!available) {
+    shownotification("This item is currenlty unavailable");
+    return;
+  }
   if (cartadded) {
     // to remove
     updateaddcartbutton(true);
@@ -167,7 +172,7 @@ function addtocart() {
     // localstorage
     updatelocalstorage(false);
     cartadded = false;
-    shownotification("Removed from cart")
+    shownotification("Removed from cart");
   } else {
     // to add
     updateaddcartbutton(false);
@@ -175,7 +180,7 @@ function addtocart() {
     // localstorage
     updatelocalstorage(true);
     cartadded = true;
-    shownotification("Added to cart")
+    shownotification("Added to cart");
   }
   updatecartnavicon();
 }
@@ -229,15 +234,17 @@ function hidelocations() {
   locationflag = false;
 }
 // select location from local storeage
-let citylocation = JSON.parse(localStorage.getItem("rblocation")) || [];
+let citylocation = JSON.parse(localStorage.getItem("rblocation")) ;
 if (citylocation) {
   document.querySelector(".locationchoose").style.transition = "0s";
   document.querySelectorAll(".locationchoose .locations").forEach((item) => {
     if (item.innerHTML == citylocation) {
       selectlocation(item);
-      hidelocations();
+      hidelocations()
     }
   });
+} else {
+  showlocations();
 }
 function selectlocation(item) {
   document.querySelectorAll(".locationchoose .locations").forEach((item) => {
@@ -269,12 +276,11 @@ function shownotification(value) {
   setTimeout(() => {
     notification.classList.add("activenotification");
   }, 100);
-  document.body.appendChild(notification)
-  setTimeout(()=>{
+  document.body.appendChild(notification);
+  setTimeout(() => {
     notification.classList.remove("activenotification");
-    setTimeout(()=>{
-      notification.remove()
-    },1000)
-  },5000)
+    setTimeout(() => {
+      notification.remove();
+    }, 1000);
+  }, 5000);
 }
-// shownotification("Please enter your name");
