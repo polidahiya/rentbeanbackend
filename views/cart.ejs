@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="logo&ui/favicon.png" type="image/png">
+    <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title>Cart - Rentbean</title>
     <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
@@ -405,8 +405,7 @@
       <button onclick="hidemonthmenu()"></button>
     </div>
     <main>
-      <div class="productscontainer">
-      </div>
+      <div class="productscontainer"></div>
       <form id="userdata" method="post">
         <label for="name">Name:</label><br />
         <input
@@ -477,10 +476,38 @@
       }
       checkemptycart();
 
-      let type1prices = [1, 3, 6, 12]; // month
-      let type2prices = [1, 3, 7, 30]; //days
-      let type3prices = [1, 3, 6]; //laptops
-      let type4prices = [6]; //ac coolers
+      let typeofprices = {
+        0: {
+          time: [1, 3, 6, 12],
+          suffix: "mo",
+          fullsuffix: "month",
+          name: "Monthly Rent",
+        }, // month
+        1: {
+          time: [1, 3, 7, 30],
+          suffix: "day",
+          fullsuffix: "day",
+          name: "Daily Rent",
+        }, //days
+        2: {
+          time: [1, 3, 6],
+          suffix: "mo",
+          fullsuffix: "month",
+          name: "Monthly Rent",
+        }, //laptops
+        3: {
+          time: [6],
+          suffix: "mo",
+          fullsuffix: "month",
+          name: "Monthly Rent",
+        }, //ac coolers
+        4: {
+          time: [1, 3, 7],
+          suffix: "day",
+          fullsuffix: "day",
+          name: "Daily Rent",
+        }, //upto week
+      };
       // create products
       if (localdata) {
         createproducts();
@@ -564,26 +591,13 @@
           //
           let monthcontainer = document.createElement("div");
           monthcontainer.classList.add("monthscontainer");
-          if (item.pricetype == 1) {
-            monthcontainer.innerHTML = `<span>${type1prices[item.time - 1]} ${
-              type1prices[item.time - 1] == 1 ? "month" : "months"
-            }</span>`;
-          }
-          if (item.pricetype == 2) {
-            monthcontainer.innerHTML = `<span>${type2prices[item.time - 1]} ${
-              type2prices[item.time - 1] == 1 ? "day" : "days"
-            }</span>`;
-          }
-          if (item.pricetype == 3) {
-            monthcontainer.innerHTML = `<span>${type3prices[item.time - 1]} ${
-              type3prices[item.time - 1] == 1 ? "month" : "months"
-            }</span>`;
-          }
-          if (item.pricetype == 4) {
-            monthcontainer.innerHTML = `<span>${
-              type4prices[item.time - 1]
-            } months </span>`;
-          }
+          monthcontainer.innerHTML = `<span>${
+            typeofprices[item.pricetype - 1].time[item.time - 1]
+          } ${
+            item.time == 1
+              ? typeofprices[item.pricetype - 1].fullsuffix
+              : typeofprices[item.pricetype - 1].fullsuffix + "s"
+          }</span>`;
           monthcontainer.onclick = () => {
             showmonthsmenu();
             // remove previous months
@@ -598,46 +612,18 @@
                 month.classList.add("selectedmonth");
               }
               //
-              if (item.pricetype == 1) {
-                month.innerHTML =
-                  type1prices[j] +
-                  (j == 0 ? " month" : " months") +
-                  " - ₹" +
-                  price +
-                  " - ( ₹" +
-                  Math.floor(price / type1prices[j]) +
-                  "/mo )";
-              }
-              if (item.pricetype == 2) {
-                month.innerHTML =
-                  type2prices[j] +
-                  (j == 0 ? " day" : " days") +
-                  " - ₹" +
-                  price +
-                  " - ( ₹" +
-                  Math.floor(price / type2prices[j]) +
-                  "/day )";
-              }
-              if (item.pricetype == 3) {
-                month.innerHTML =
-                  type3prices[j] +
-                  (j == 0 ? " month" : " months") +
-                  " - ₹" +
-                  price +
-                  " - ( ₹" +
-                  Math.floor(price / type3prices[j]) +
-                  "/mo )";
-              }
-              if (item.pricetype == 4) {
-                month.innerHTML =
-                  type4prices[j] +
-                  (j == 0 ? " month" : " months") +
-                  " - ₹" +
-                  price +
-                  " - ( ₹" +
-                  Math.floor(price / type4prices[j]) +
-                  "/mo )";
-              }
+              month.innerHTML =
+                typeofprices[item.pricetype - 1].time[j] +
+                (j == 0
+                  ? typeofprices[item.pricetype - 1].fullsuffix
+                  : typeofprices[item.pricetype - 1].fullsuffix + "s") +
+                " - ₹" +
+                price +
+                " - ( ₹" +
+                Math.floor(price / typeofprices[item.pricetype - 1].time[j]) +
+                "/" +
+                typeofprices[item.pricetype - 1].suffix +
+                " )";
               month.onclick = () => {
                 document
                   .querySelectorAll(".selectmonthsmenu .month")
@@ -646,30 +632,15 @@
                   });
                 month.classList.add("selectedmonth");
                 item.time = j + 1;
-                if (item.pricetype == 1) {
-                  monthcontainer.innerHTML = `<span>${
-                    type1prices[item.time - 1]
-                  } ${
-                    type1prices[item.time - 1] == 1 ? "month" : "months"
-                  }</span>`;
-                }
-                if (item.pricetype == 2) {
-                  monthcontainer.innerHTML = `<span>${
-                    type2prices[item.time - 1]
-                  } ${type2prices[item.time - 1] == 1 ? "day" : "days"}</span>`;
-                }
-                if (item.pricetype == 3) {
-                  monthcontainer.innerHTML = `<span>${
-                    type3prices[item.time - 1]
-                  } ${
-                    type3prices[item.time - 1] == 1 ? "month" : "months"
-                  }</span>`;
-                }
-                if (item.pricetype == 4) {
-                  monthcontainer.innerHTML = `<span>${
-                    type4prices[item.time - 1]
-                  } months </span>`;
-                }
+                //
+                monthcontainer.innerHTML = `<span>${
+                  typeofprices[item.pricetype - 1].time[item.time - 1]
+                } ${
+                  item.time == 1
+                    ? typeofprices[item.pricetype - 1].fullsuffix
+                    : typeofprices[item.pricetype - 1].fullsuffix + "s"
+                }</span>`;
+                //
                 localStorage.setItem("rbproducts", JSON.stringify(localdata));
                 //
                 rent.innerHTML = `

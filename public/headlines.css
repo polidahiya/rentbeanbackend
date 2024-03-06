@@ -25,18 +25,14 @@
   box-sizing: border-box;
   height: 100%;
   aspect-ratio: 1;
-  background-image: url("https://www.cockatooindia.com/cdn/shop/products/48b93f94-c787-4518-92ac-8a751570ee83.__CR00970600_PT0_SX970_V1.jpg?v=1672151447&width=970");
   background-size: cover;
-  background-position: center;
+  background-position: left;
   transition: 0.4s;
   border-radius: 12px;
   transform: translateX(-785px);
-  filter: brightness(0.6);
-  border: 1px solid var(--theme);
 }
 .headingcards:nth-of-type(3) {
-  aspect-ratio: 7/4;
-  filter: brightness(1);
+  aspect-ratio: 16/9;
   font-size: 25px;
 }
 /*  */
@@ -122,7 +118,7 @@
   .highlightscontainer {
     height: unset;
     width: calc(100% - 20px);
-    aspect-ratio: 7/4;
+    aspect-ratio: 16/9;
     outline: 1px solid var(--theme20);
   }
   .headingcards {

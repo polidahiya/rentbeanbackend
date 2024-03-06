@@ -313,11 +313,7 @@
       document.title = product + " - RentBean";
       document.querySelector(".secnav span").innerHTML = product;
       //fetch itemlist
-      let type1prices = [1, 3, 6, 12]; // month
-      let type2prices = [1, 3, 7, 30]; //days
-      let type3prices = [1, 3, 6]; //laptops
-      let type4prices = [6]; //ac coolers
-      let pricetypename = ["mo", "day", "mo", "season"];
+      let pricetypename = ["mo", "day", "mo", "season","day","day"];
       let producttoshow;
       fetch("data.json")
         .then((res) => res.json())

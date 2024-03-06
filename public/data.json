@@ -275,7 +275,7 @@
               "productimages/ps4/img3.jpg"
             ],
             "limit": 1,
-            "available": 0,
+            "available": 1,
             "prices": [800, 2000, 3000, 5000],
             "pid": "ps41",
             "desc": ["desc1", "desc2"],
@@ -304,7 +304,7 @@
               "productimages/xbox/img3.jpg"
             ],
             "limit": 1,
-            "available": 0,
+            "available": 1,
             "prices": [800, 2000, 3000, 5000],
             "pid": "xbox1",
             "desc": ["desc1", "desc2"],
@@ -533,10 +533,10 @@
             "image": ["productimages/Tv42/42-inch-sony-led-tv-500x500.jpg"],
             "limit": 1,
             "available": 1,
-            "prices": [1000, 3000, 5000, 17000],
+            "prices": [1000, 3000, 5000],
             "pid": "tv1",
             "desc": ["42 inch LED TV"],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 2000,
             "options": [
               {
@@ -628,10 +628,10 @@
             "image": ["productimages/projector1/img1.webp"],
             "limit": 1,
             "available": 1,
-            "prices": [2000, 4000, 7000, 15000],
+            "prices": [2000, 4000, 7000],
             "pid": "projector1",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 2000,
             "options": [
               {
@@ -1531,10 +1531,10 @@
             ],
             "limit": 5,
             "available": 1,
-            "prices": [500, 900, 1400, 2000],
+            "prices": [500, 900, 1400],
             "pid": "hookah1",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 500,
             "options": [
               {
@@ -1554,10 +1554,10 @@
             ],
             "limit": 1,
             "available": 1,
-            "prices": [300, 700, 1200, 1500],
+            "prices": [300, 700, 1200],
             "pid": "hookah2",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 500,
             "options": [
               {
@@ -1583,10 +1583,10 @@
             ],
             "limit": 5,
             "available": 1,
-            "prices": [400, 700, 1200, 1800],
+            "prices": [400, 700, 1200],
             "pid": "djlight1",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 500,
             "options": [
               {
@@ -1611,10 +1611,10 @@
             ],
             "limit": 1,
             "available": 1,
-            "prices": [500, 1000, 2000, 4500],
+            "prices": [500, 1000, 2000],
             "pid": "barbaque1",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 500,
             "options": [
               {
@@ -1634,10 +1634,10 @@
             ],
             "limit": 1,
             "available": 1,
-            "prices": [400, 900, 1800, 4000],
+            "prices": [400, 900, 1800],
             "pid": "barbaque2",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 500,
             "options": [
               {
@@ -1662,10 +1662,10 @@
             ],
             "limit": 5,
             "available": 1,
-            "prices": [400, 900, 1800, 4000],
+            "prices": [400, 900, 1800],
             "pid": "beertower1",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 1000,
             "options": [
               {
@@ -1690,10 +1690,10 @@
             ],
             "limit": 3,
             "available": 1,
-            "prices": [1000, 1500, 2000, 4000],
+            "prices": [1000, 1500, 2000],
             "pid": "dispenser1",
             "desc": ["", ""],
-            "pricetype": 2,
+            "pricetype": 5,
             "refundableprice": 1000,
             "options": [
               {

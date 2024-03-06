@@ -1,8 +1,36 @@
-let highlightcards = document.querySelectorAll(".headingcards");
 let hightlightscontainer = document.querySelector(
   ".highlightscrollingscontainer"
 );
-let arraylength = 4;
+
+let adsarray = [
+  { image: "/images/highlights/ad1.jpg", link: "" },
+  { image: "/images/highlights/ad2.jpg", link: "" },
+  { image: "/images/highlights/ad3.jpg", link: "" },
+  { image: "/images/highlights/ad4.jpg", link: "" },
+];
+// create ads
+function makeads(value) {
+  let ads = document.createElement("div");
+  ads.classList.add("headingcards");
+  ads.style.backgroundImage = "url(" + adsarray[value].image + ")";
+  hightlightscontainer.appendChild(ads);
+}
+//
+makeads(adsarray.length - 2);
+makeads(adsarray.length - 1);
+//
+for (let i = 0; i < adsarray.length; i++) {
+  makeads(i);
+}
+makeads(0);
+makeads(1);
+makeads(2);
+//
+//
+//
+//
+let highlightcards = document.querySelectorAll(".headingcards");
+let arraylength = adsarray.length;
 // add dotts
 for (let i = 0; i < arraylength; i++) {
   let dotts = document.createElement("div");
@@ -44,7 +72,7 @@ function highlightsmove(dir) {
     if (window.innerWidth < 450) {
       hightlightscontainer.style.transform =
         "translateX(" +
-        -(highlightsscrollvalue * (((window.innerWidth - 20) * 4) / 7 + 10)) +
+        -(highlightsscrollvalue * (((window.innerWidth - 20) * 9) / 16 + 10)) +
         "px)";
     } else {
       hightlightscontainer.style.transform =
@@ -67,7 +95,7 @@ function highlightsmove(dir) {
             "translateX(" +
             -(
               highlightsscrollvalue *
-              (((window.innerWidth - 20) * 4) / 7 + 10)
+              (((window.innerWidth - 20) * 9) / 16 + 10)
             ) +
             "px)";
         } else {
@@ -89,7 +117,7 @@ function highlightsmove(dir) {
     if (window.innerWidth < 450) {
       hightlightscontainer.style.transform =
         "translateX(-" +
-        highlightsscrollvalue * (((window.innerWidth - 20) * 4) / 7 + 10) +
+        highlightsscrollvalue * (((window.innerWidth - 20) * 9) / 16 + 10) +
         "px)";
     } else {
       hightlightscontainer.style.transform =
@@ -107,7 +135,7 @@ function highlightsmove(dir) {
         if (window.innerWidth < 450) {
           hightlightscontainer.style.transform =
             "translateX(-" +
-            highlightsscrollvalue * (((window.innerWidth - 20) * 4) / 7 + 10) +
+            highlightsscrollvalue * (((window.innerWidth - 20) * 9) / 16 + 10) +
             "px)";
         } else {
           hightlightscontainer.style.transform =
@@ -122,10 +150,8 @@ function highlightsmove(dir) {
 function changestyleofhighlights() {
   highlightcards.forEach((item, i) => {
     item.style.aspectRatio = "1";
-    item.style.filter = "brightness(0.6)";
     if (i == highlightsscrollvalue + 2) {
-      item.style.aspectRatio = "7/4";
-      item.style.filter = "brightness(1)";
+      item.style.aspectRatio = "16/9";
     }
   });
 }
