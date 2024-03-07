@@ -883,7 +883,7 @@
                   // img meta tag
                   document
                     .querySelector('meta[name="image"]')
-                    .setAttribute("content", data.image[0]);
+                    .setAttribute("content", "/" + data.image[0]);
                   productdata = data;
                   // setimages
                   data.image.forEach((img, i) => {
