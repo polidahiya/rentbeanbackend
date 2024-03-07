@@ -231,11 +231,11 @@
         "image": "images/homegym.jpg",
         "products": [
           {
-            "name": "Full Body Vibrator",
+            "name": "3d body shaper",
             "image": ["productimages/fullbodyvibrator/img1.jpg"],
             "limit": 1,
             "available": 1,
-            "prices": [1000, 2500, 4500],
+            "prices": [2000, 4500, 6000],
             "pid": "homegym1",
             "desc": [
               "Vibration machine helps in reflex reactions, burning calories, and fat",
