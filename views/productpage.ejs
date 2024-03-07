@@ -886,9 +886,15 @@
                     metaTag.setAttribute("content", content);
                     document.head.appendChild(metaTag);
                   }
-                  var imageUrl = "https://example.com/path/to/image.jpg";
-                  createOrUpdateMetaTag("og:image", data.image[0]);
-                  createOrUpdateMetaTag("twitter:image", data.image[0]);
+                  // https://rentbeanbackend-2.onrender.com/productpage?p=laptop2&subcat=Laptop
+                  createOrUpdateMetaTag(
+                    "og:image",
+                    "https://rentbeanbackend-2.onrender.com/" + data.image[0]
+                  );
+                  createOrUpdateMetaTag(
+                    "twitter:image",
+                    "https://rentbeanbackend-2.onrender.com/" + data.image[0]
+                  );
 
                   //
                   productdata = data;
