@@ -265,7 +265,7 @@
         <span>Choose location</span>
       </div>
     </div>
-    <div class="locationchoose ">
+    <div class="locationchoose">
       <button onclick="hidelocations()">X</button>
       <div class="locations">Delhi</div>
       <div class="locations">Gurgaon</div>
@@ -313,7 +313,33 @@
       document.title = product + " - RentBean";
       document.querySelector(".secnav span").innerHTML = product;
       //fetch itemlist
-      let pricetypename = ["mo", "day", "mo", "season","day","day"];
+      let typeofprices = {
+        0: {
+          time: [1, 3, 6, 12],
+          suffix: "mo",
+          name: "Monthly Rent",
+        }, // month
+        1: {
+          time: [1, 3, 7, 30],
+          suffix: "day",
+          name: "Daily Rent",
+        }, //days
+        2: {
+          time: [1, 3, 6],
+          suffix: "mo",
+          name: "Monthly Rent",
+        }, //laptops
+        3: {
+          time: [6],
+          suffix: "mo",
+          name: "Monthly Rent",
+        }, //ac coolers
+        4: {
+          time: [1, 3, 7],
+          suffix: "day",
+          name: "Daily Rent",
+        }, //upto week
+      };
       let producttoshow;
       fetch("data.json")
         .then((res) => res.json())
@@ -346,9 +372,12 @@
                 />
               </div>
               <div class="title">${item.name}</div>
-              <div class="rent">Rent : ₹ <span>${item.prices[0]}</span>/${
-                pricetypename[item.pricetype - 1]
-              }</div>
+              <div class="rent">Rent : ₹ <span>${Math.floor(
+                item.prices[item.prices.length - 1] /
+                  typeofprices[item.pricetype - 1].time[
+                    typeofprices[item.pricetype - 1].time.length - 1
+                  ]
+              )}</span>/${typeofprices[item.pricetype - 1].suffix}</div>
               `;
               card.querySelector(".imgcontainer img").onload = () => {
                 card.querySelector(".imgcontainer .loader").style.display =

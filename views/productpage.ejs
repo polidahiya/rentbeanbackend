@@ -884,7 +884,7 @@
                   function createOrUpdateMetaTag(property, content) {
                     let metaTag = document.createElement("meta");
                     metaTag.setAttribute("property", property);
-                    metaTag.setAttribute("content", base64);
+                    metaTag.setAttribute("content", content);
                     document.head.appendChild(metaTag);
                   }
                   createOrUpdateMetaTag("og:image", data.image[0]);
