@@ -7,7 +7,6 @@
     <meta name="keywords" content="<%= product.keywords %>" />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title></title>
-    <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -881,9 +880,17 @@
               res[key]["subcat"][subcat].products.forEach((data) => {
                 if (data.pid == product) {
                   // img meta tag
-                  document
-                    .querySelector('meta[name="image"]')
-                    .setAttribute("content", "/" + data.image[0]);
+                  function createOrUpdateMetaTag(property, content) {
+                    let metaTag = document.createElement("meta");
+                    metaTag.setAttribute("property", property);
+                    metaTag.setAttribute("content", content);
+                    document.head.appendChild(metaTag);
+                  }
+                  var imageUrl = "https://example.com/path/to/image.jpg";
+                  createOrUpdateMetaTag("og:image", data.image[0]);
+                  createOrUpdateMetaTag("twitter:image", data.image[0]);
+
+                  //
                   productdata = data;
                   // setimages
                   data.image.forEach((img, i) => {
