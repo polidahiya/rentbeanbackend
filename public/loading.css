@@ -1,0 +1,159 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: white;
+  z-index: 200;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.comp {
+  position: relative;
+  border-radius: 10px;
+  background-color: rgb(226, 226, 226);
+  overflow: hidden;
+}
+.comp::before {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  content: "";
+  height: 300%;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  transform: translateY(-50%) rotate(30deg);
+  animation: loading 1s infinite linear;
+}
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: calc(200% + 30px);
+  }
+}
+.loading .nav {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  padding: 0px 40px;
+}
+.loading .nav > div {
+  height: 30px;
+  width: 100px;
+}
+.loading .nav .navcomp {
+  width: 130px;
+}
+.loading .nav .cart {
+  width: 70px;
+}
+.loading .nav .location {
+  margin-left: auto;
+}
+.loading .highlights {
+  height: 400px;
+  width: calc(100vw - 80px);
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+.loading .highlights .ads {
+  height: 100%;
+  aspect-ratio: 2.5/1;
+}
+.loading .minicards {
+  width: 100%;
+  padding: 40px 50px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.loading .minicards .card {
+  min-height: 70px;
+  aspect-ratio: 5/3;
+}
+.loadingpinkups {
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 50px;
+}
+.loadingpinkups .container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0px;
+}
+.loadingpinkups .container .text{
+  height: 30px;
+  width: 100px;
+}
+.loadingpinkups .container .buttons{
+  height: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.loadingpinkups .container .buttons:nth-of-type(2){
+  margin-left: auto;
+}
+.loadingpinkups .loadingcardscontainer{
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+  gap: 10px;
+}
+.loadingpinkups .loadingcardscontainer .loadingcard{
+  height: 300px;
+  min-width: 200px;
+}
+@media screen and (width<450px) {
+  .loading .nav {
+    padding: 0px 20px;
+  }
+  .navcomp {
+    display: none;
+  }
+  .loading .highlights {
+    height: unset;
+    width: calc(100vw - 40px);
+    aspect-ratio: 5/3;
+  }
+  .loading .highlights .ads {
+    height: 100%;
+    aspect-ratio: unset;
+    min-width: 100%;
+  }
+  .loading .minicards {
+    gap: 10px;
+    padding: 40px 10px;
+  }
+  .loading .minicards .card {
+    min-height: 60px;
+    aspect-ratio: 1;
+  }
+  .loadingpinkups {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px 50px 20px;
+  }
+}

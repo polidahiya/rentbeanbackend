@@ -3,14 +3,27 @@ let hightlightscontainer = document.querySelector(
 );
 
 let adsarray = [
-  { image: "/images/highlights/ad1.jpg", link: "" },
-  { image: "/images/highlights/ad2.jpg", link: "" },
-  { image: "/images/highlights/ad3.jpg", link: "" },
-  { image: "/images/highlights/ad4.jpg", link: "" },
+  {
+    image: "/images/highlights/ad1.jpg",
+    link: "/categorypage?category=Furniture",
+  },
+  {
+    image: "/images/highlights/ad2.jpg",
+    link: "/categorypage?category=Fitness%20and%20Gym",
+  },
+  {
+    image: "/images/highlights/ad3.jpg",
+    link: "/categorypage?category=Furniture",
+  },
+  {
+    image: "/images/highlights/ad4.jpg",
+    link: "/subcategory?subcategory=Laptop",
+  },
 ];
 // create ads
 function makeads(value) {
-  let ads = document.createElement("div");
+  let ads = document.createElement("a");
+  ads.href = adsarray[value].link;
   ads.classList.add("headingcards");
   ads.style.backgroundImage = "url(" + adsarray[value].image + ")";
   hightlightscontainer.appendChild(ads);

@@ -13,9 +13,9 @@ body {
   margin: 0;
   --bg1: rgb(247, 247, 250);
   --headingsvg: rgb(82, 82, 82);
-  --theme: rgb(214, 142 ,67);
-  --theme50: rgb(214, 142 ,67, 0.5);
-  --theme20: rgb(214, 142 ,67, 0.2);
+  --theme: rgb(214, 142, 67);
+  --theme50: rgb(214, 142, 67, 0.5);
+  --theme20: rgb(214, 142, 67, 0.2);
   color: var(--headingsvg);
 }
 .notification {
@@ -228,7 +228,7 @@ nav .cart span {
   flex-wrap: wrap;
   pointer-events: none;
   opacity: 0;
-  transition:opacity 0.3s;
+  transition: opacity 0.3s;
 }
 .activelocationchoose {
   pointer-events: all;

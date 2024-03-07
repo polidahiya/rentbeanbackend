@@ -23,6 +23,8 @@
     />
     <!-- spinner -->
     <link rel="stylesheet" href="imageloading.css" />
+    <!-- loading -->
+    <link rel="stylesheet" href="loading.css" />
     <!-- main -->
     <link rel="stylesheet" href="main.css" />
     <!-- moving headlines -->
@@ -37,6 +39,43 @@
     <link rel="stylesheet" href="footer.css" />
   </head>
   <body>
+    <div class="loading">
+      <div class="nav">
+        <div class="comp logo"></div>
+        <div class="comp navcomp location"></div>
+        <div class="comp navcomp"></div>
+        <div class="comp navcomp"></div>
+        <div class="comp navcomp"></div>
+        <div class="comp navcomp"></div>
+        <div class="comp cart"></div>
+      </div>
+      <div class="highlights">
+        <div class="ads comp"></div>
+        <div class="ads comp"></div>
+        <div class="ads comp"></div>
+      </div>
+      <div class="minicards">
+        <div class="card comp"></div>
+        <div class="card comp"></div>
+        <div class="card comp"></div>
+        <div class="card comp"></div>
+        <div class="card comp"></div>
+      </div>
+      <div class="loadingpinkups">
+        <div class="container">
+          <div class="comp text"></div>
+          <div class="comp buttons"></div>
+          <div class="comp buttons"></div>
+        </div>
+        <div class="loadingcardscontainer">
+          <div class="loadingcard comp"></div>
+          <div class="loadingcard comp"></div>
+          <div class="loadingcard comp"></div>
+          <div class="loadingcard comp"></div>
+          <div class="loadingcard comp"></div>
+        </div>
+      </div>
+    </div>
     <nav>
       <img src="logo&ui/3dlogo.png" alt="" class="logodesk" />
       <a href="cart" class="cart">
@@ -327,6 +366,16 @@
             document.querySelector(".cardscontainer").appendChild(card);
           });
         });
+    </script>
+    <script>
+      document.body.onload = () => {
+        setTimeout(() => {
+          document.querySelector(".loading").style.opacity = "0";
+          setTimeout(() => {
+            document.querySelector(".loading").style.display = "none";
+          }, 1000);
+        }, 1000);
+      };
     </script>
   </body>
 </html>
