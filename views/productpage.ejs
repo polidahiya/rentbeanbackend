@@ -870,6 +870,26 @@
           name: "Daily Rent",
         }, //upto week
       };
+      //
+      function convertImageToBase64(url, callback) {
+        var img = new Image();
+        img.crossOrigin = "Anonymous";
+
+        img.onload = function () {
+          var canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+
+          var dataURL = canvas.toDataURL("image/png");
+          callback(dataURL);
+        };
+
+        img.src = url;
+      }
+      //
       let optionsarray = {};
       let productdata;
       fetch("data.json")
@@ -881,21 +901,15 @@
                 if (data.pid == product) {
                   // img meta tag
                   function createOrUpdateMetaTag(property, content) {
-                    let metaTag = document.createElement("meta");
-                    metaTag.setAttribute("property", property);
-                    metaTag.setAttribute("content", content);
-                    document.head.appendChild(metaTag);
+                    convertImageToBase64(content, function (base64) {
+                      let metaTag = document.createElement("meta");
+                      metaTag.setAttribute("property", property);
+                      metaTag.setAttribute("content", base64);
+                      document.head.appendChild(metaTag);
+                    });
                   }
-                  // https://rentbeanbackend-2.onrender.com/productpage?p=laptop2&subcat=Laptop
-                  createOrUpdateMetaTag(
-                    "og:image",
-                    "https://rentbeanbackend-2.onrender.com/" + data.image[0]
-                  );
-                  createOrUpdateMetaTag(
-                    "twitter:image",
-                    "https://rentbeanbackend-2.onrender.com/" + data.image[0]
-                  );
-
+                  createOrUpdateMetaTag("og:image", data.image[0]);
+                  createOrUpdateMetaTag("twitter:image", data.image[0]);
                   //
                   productdata = data;
                   // setimages
