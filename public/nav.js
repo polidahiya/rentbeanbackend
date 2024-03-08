@@ -165,6 +165,8 @@ function addtocart() {
   }
   if (cartadded) {
     // to remove
+    document.querySelector(".addtocart .eff").style.backgroundColor =
+      "rgb(0, 173, 0)";
     updateaddcartbutton(true);
     if (numberofcartproduct > 0) {
       numberofcartproduct--;
@@ -175,6 +177,8 @@ function addtocart() {
     shownotification("Removed from cart");
   } else {
     // to add
+    document.querySelector(".addtocart .eff").style.backgroundColor =
+      "rgb(253, 52, 52)";
     updateaddcartbutton(false);
     numberofcartproduct++;
     // localstorage
@@ -234,13 +238,13 @@ function hidelocations() {
   locationflag = false;
 }
 // select location from local storeage
-let citylocation = JSON.parse(localStorage.getItem("rblocation")) ;
+let citylocation = JSON.parse(localStorage.getItem("rblocation"));
 if (citylocation) {
   document.querySelector(".locationchoose").style.transition = "0s";
   document.querySelectorAll(".locationchoose .locations").forEach((item) => {
     if (item.innerHTML == citylocation) {
       selectlocation(item);
-      hidelocations()
+      hidelocations();
     }
   });
 } else {

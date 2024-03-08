@@ -234,6 +234,7 @@
       }
       /* addtocart */
       .addtocart {
+        position: relative;
         height: 50px;
         width: 100%;
         display: flex;
@@ -247,12 +248,29 @@
         margin-top: 20px;
         cursor: pointer;
         color: white;
+        overflow: hidden;
+      }
+      .addtocart > * {
+        z-index: 2;
       }
       .addtocart svg {
         height: 100%;
       }
       .addtocart .deletesvg {
         display: none;
+      }
+      .eff {
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 0px;
+        aspect-ratio: 1;
+        background-color: rgb(0, 173, 0);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        transition: height 0.35s linear;
+        z-index: 1;
       }
       /* shippingdetail */
       .shippingdetail {
@@ -364,13 +382,39 @@
       input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        height: 20px;
+        height: 15px;
         aspect-ratio: 1;
-        background: var(--theme);
+        background: white;
+        outline: 1px solid var(--theme);
+        outline-offset: 0px;
         border-radius: 50%;
         cursor: pointer;
         transform: translateY(calc(-50% + 1px));
+        transition: 0.2s linear, background-color 0s;
       }
+      @media screen and (width>450px) {
+        input[type="range"]::-webkit-slider-thumb:hover {
+          outline-offset: 2px;
+          background: var(--theme);
+          transform: translateY(calc(-50% + 1px)) scale(1.2);
+        }
+      }
+      @media screen and (width<450px) {
+        input[type="range"]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          height: 15px;
+          aspect-ratio: 1;
+          outline: 1px solid var(--theme);
+          border-radius: 50%;
+          cursor: pointer;
+          transition: 0.2s linear, background-color 0s;
+          outline-offset: 2px;
+          background: var(--theme);
+          transform: translateY(calc(-50% + 1px)) scale(1.2);
+        }
+      }
+
       input[type="range"]::-webkit-slider-runnable-track {
         width: 100%;
         height: 2px;
@@ -595,6 +639,7 @@
         </div>
         <!-- add to cart -->
         <div class="addtocart" onclick="addtocart()">
+          <div class="eff"></div>
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -841,6 +886,20 @@
     </script>
     <!-- nav script -->
     <script src="nav.js"></script>
+    <!-- add cart button effect -->
+    <script>
+      let addtocartbutton = document.querySelector(".addtocart");
+      let addcarteffect = document.querySelector(".addtocart .eff");
+      addtocartbutton.onmousemove = (e) => {
+        addcarteffect = document.querySelector(".addtocart .eff");
+        addcarteffect.style.left = e.pageX - addtocartbutton.offsetLeft + "px";
+        addcarteffect.style.top = e.pageY - addtocartbutton.offsetTop + "px";
+        if (window.innerWidth > 450) addcarteffect.style.height = "700px";
+      };
+      addtocartbutton.onmouseleave = () => {
+        addcarteffect.style.height = "0px";
+      };
+    </script>
     <!-- main -->
     <script>
       const queryString = window.location.search;
@@ -1096,8 +1155,12 @@
                   if (data.available == 0) {
                     available = false;
                     document.querySelector(".addtocart").innerHTML = `
+                    <div class="eff"></div>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.5 11C9.32843 11 10 10.3284 10 9.5C10 8.67157 9.32843 8 8.5 8C7.67157 8 7 8.67157 7 9.5C7 10.3284 7.67157 11 8.5 11Z" fill="#ffffff"></path> <path d="M17 9.5C17 10.3284 16.3284 11 15.5 11C14.6716 11 14 10.3284 14 9.5C14 8.67157 14.6716 8 15.5 8C16.3284 8 17 8.67157 17 9.5Z" fill="#ffffff"></path> <path d="M15.1091 16.4588C15.3597 16.9443 15.9548 17.1395 16.4449 16.8944C16.9388 16.6474 17.1391 16.0468 16.8921 15.5528C16.8096 15.3884 16.7046 15.2343 16.5945 15.0875C16.4117 14.8438 16.1358 14.5299 15.7473 14.2191C14.9578 13.5875 13.7406 13 11.9977 13C10.2547 13 9.03749 13.5875 8.24796 14.2191C7.85954 14.5299 7.58359 14.8438 7.40078 15.0875C7.29028 15.2348 7.1898 15.3889 7.10376 15.5517C6.85913 16.0392 7.06265 16.6505 7.55044 16.8944C8.04053 17.1395 8.63565 16.9443 8.88619 16.4588C8.9 16.4339 9.08816 16.1082 9.49735 15.7809C9.95782 15.4125 10.7406 15 11.9977 15C13.2547 15 14.0375 15.4125 14.498 15.7809C14.9072 16.1082 15.0953 16.4339 15.1091 16.4588Z" fill="#ffffff"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23ZM12 20.9932C7.03321 20.9932 3.00683 16.9668 3.00683 12C3.00683 7.03321 7.03321 3.00683 12 3.00683C16.9668 3.00683 20.9932 7.03321 20.9932 12C20.9932 16.9668 16.9668 20.9932 12 20.9932Z" fill="#ffffff"></path> </g></svg>
                     <span>Currently unavailable</span>`;
+                    document.querySelector(
+                      ".addtocart .eff"
+                    ).style.backgroundColor = "rgb(253, 52, 52)";
                   }
                   //set desc
                   data.desc.forEach((desc) => {
