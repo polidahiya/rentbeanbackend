@@ -3,24 +3,25 @@ const app = express();
 const multer = require("multer");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
-const path=require("path")
+const path = require("path");
 app.use(cookieParser());
 app.use(express.json());
-app.listen(3005);
+const port = process.env.PORT || 3005;
+app.listen(port);
 //
 const bodyParser = require("body-parser");
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 //
 console.log("listening");
-app.use(express.static(path.join(__dirname,"public")));
-app.use("/",require("./pages"))
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/", require("./pages"));
 app.use("/placeorder", require("./makeorder"));
-app.use("/admin",require("./adminroute"))
+app.use("/admin", require("./adminroute"));
 
 //update password
 const connectToMongo = require("./mongo");
-const verifyToken=require("./verifytoken")
+const verifyToken = require("./verifytoken");
 app.post("/updatepassword", verifyToken, async (req, res) => {
   try {
     const { data } = await connectToMongo();
@@ -44,7 +45,7 @@ app.post("/updatepassword", verifyToken, async (req, res) => {
   }
 });
 //login
-app.post("/login", async(req, res) => {
+app.post("/login", async (req, res) => {
   try {
     const { data } = await connectToMongo();
     data.findOne({ email: "admin@vishal.com" }).then((user) => {
