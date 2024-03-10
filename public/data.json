@@ -133,7 +133,7 @@
               "Weight capacity : 120kg max"
             ],
             "pricetype": 3,
-            "refundableprice": 100,
+            "refundableprice": 1500,
             "options": [
               {
                 "name": "Quantity",
@@ -276,7 +276,7 @@
             ],
             "limit": 1,
             "available": 1,
-            "prices": [800, 2000, 3000, 5000],
+            "prices": [800, 2000, 3000, 6000],
             "pid": "ps41",
             "desc": [
               "'Suspend mode' eliminates the load time on your saved game and allows you to immediately return to where you left off by pressing the power button",
@@ -309,7 +309,7 @@
             ],
             "limit": 1,
             "available": 1,
-            "prices": [800, 2000, 3000, 5000],
+            "prices": [800, 2000, 3000, 6000],
             "pid": "xbox1",
             "desc": ["Go all-digital and enjoy disc-free, next-gen gaming with the smallest Xbox console ever made",
             "Xbox game Pass ultimate includes over 100 high-quality games, online multiplayer, and an EA play membership for one low monthly price (membership sold separately)",

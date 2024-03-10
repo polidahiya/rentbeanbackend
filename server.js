@@ -95,20 +95,13 @@ app.get("/logout", (req, res) => {
 //
 // site spy
 // get previewdata
-app.get("/data", async (req, res) => {
+app.get("/data", verifyToken, async (req, res) => {
   try {
-    // all visiters
     data.updateOne({}, { $inc: { totalvisits: 1 } }, { upsert: true });
-    // today visiters
-    // data.updateOne(
-    //   { date: new Date().toISOString().split("T")[0] },
-    //   { $inc: { visiterstoday: 1 } },
-    //   { upsert: true }
-    // );
-    //
     let result = await data.findOne({});
     res.json(result);
   } catch (error) {
     console.log(error);
   }
 });
+

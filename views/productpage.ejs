@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="<%= product.metadesc %>" />
     <meta name="keywords" content="<%= product.keywords %>" />
+    <meta name="keywords" content="<%= product.keywords %>" />
+    <meta
+      property="og:image"
+      content="https://rentbean.in/<%= product.image[0] %>"
+    />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title></title>
     <!-- fonts -->
@@ -945,22 +950,6 @@
             for (const subcat in res[key]["subcat"]) {
               res[key]["subcat"][subcat].products.forEach((data) => {
                 if (data.pid == product) {
-                  // img meta tag
-                  function createOrUpdateMetaTag(property, content) {
-                    let metaTag = document.createElement("meta");
-                    metaTag.setAttribute(
-                      "property",
-                      "http://rentbean.in/" + property
-                    );
-                    metaTag.setAttribute(
-                      "content",
-                      "http://rentbean.in/" + content
-                    );
-                    // http://rentbean.in/logo&ui/favicon.png
-                    document.head.appendChild(metaTag);
-                  }
-                  createOrUpdateMetaTag("og:image", data.image[0]);
-                  createOrUpdateMetaTag("twitter:image", data.image[0]);
                   //
                   productdata = data;
                   // setimages
