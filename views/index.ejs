@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="msvalidate.01" content="E745FFD9C78D58022A962CD8F686FA7D" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <meta
       name="description"
-      content="Welcome to our premier rental website offering a diverse range of products to meet all your needs! From fitness and gym equipment to cutting-edge electronics, gaming consoles, laptops, and a variety of event and party items, we have everything you need for your convenience. Serving the vibrant areas of Gurgaon, Delhi, and Noida, our platform ensures easy access to quality rentals, making your experience seamless and hassle-free."
+      content="Welcome to our premier rental website offering a diverse range of products to meet all your needs! From fitness and gym equipment to cutting-edge electronics, gaming consoles, laptops, and a variety of event and party items, we have everything you need for your convenience. Serving the vibrant areas of Gurgaon(Gurugram), Delhi, and Noida, our platform ensures easy access to quality rentals, making your experience seamless and hassle-free."
     />
     <meta
       name="keywords"
-      content="rentbean.in,Rentbean, Rental website, Fitness equipment rental, Gym equipment rental, Electronics rental, Gaming console rental, Laptop rental, Event rentals, Party rentals, Gurgaon rentals, Delhi rentals, Noida rentals, Convenience rentals, Quality rentals, Hassle-free rentals."
+      content="rentbean.in , Rentbean , Rent items in Gurgaon, Rent items in Delhi , Rent items in Noida , Rental website, Fitness equipment rental, Gym equipment rental, Electronics rental, Gaming console rental, Laptop rental, Event rentals, Party rentals, Gurgaon rentals, Delhi rentals, Noida rentals, Convenience rentals, Quality rentals, Hassle-free rentals."
     />
     <title>Rentbean.in</title>
-    <meta name="image" content="logo&ui/favicon.png" />
+    <meta name="image" content="http://rentbean.in/logo&ui/favicon.png" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -299,7 +300,33 @@
         cardscontainer.scrollLeft += 400;
       };
       //
-      let pricetypename = ["mo", "day", "mo", "season"];
+      let typeofprices = {
+        0: {
+          time: [1, 3, 6, 12],
+          suffix: "mo",
+          name: "Monthly Rent",
+        }, // month
+        1: {
+          time: [1, 3, 7, 30],
+          suffix: "day",
+          name: "Daily Rent",
+        }, //days
+        2: {
+          time: [1, 3, 6],
+          suffix: "mo",
+          name: "Monthly Rent",
+        }, //laptops
+        3: {
+          time: [6],
+          suffix: "mo",
+          name: "Monthly Rent",
+        }, //ac coolers
+        4: {
+          time: [1, 3, 7],
+          suffix: "day",
+          name: "Daily Rent",
+        }, //upto week
+      };
       fetch("data.json")
         .then((res) => res.json())
         .then((res) => {
@@ -346,12 +373,12 @@
                      <a href="productpage?p=${data.product.pid}&subcat=${
               data.subcat
             }" class="name">${data.product.name}</a>
-                     <div class="otherdetailscontainer">
-                       <div class="rent">
-                         Rent
-                         <br />
-                         <span>₹ ${data.product.prices[0]}/${
-              pricetypename[data.product.pricetype - 1]
+                               <div class="otherdetailscontainer">
+                                 <div class="rent">
+                                   Rent
+                                   <br />
+                                   <span>₹ ${data.product.prices[0]}/${
+              typeofprices[data.product.pricetype - 1].suffix
             }</span>
                        </div>
                        <a href="subcategory?subcategory=${
@@ -369,11 +396,9 @@
     </script>
     <script>
       document.body.onload = () => {
+        document.querySelector(".loading").style.opacity = "0";
         setTimeout(() => {
-          document.querySelector(".loading").style.opacity = "0";
-          setTimeout(() => {
-            document.querySelector(".loading").style.display = "none";
-          }, 1000);
+          document.querySelector(".loading").style.display = "none";
         }, 1000);
       };
     </script>

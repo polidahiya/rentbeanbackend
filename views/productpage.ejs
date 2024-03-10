@@ -213,7 +213,6 @@
       .showprices {
         display: flex;
         margin-top: 20px;
-        /* border: 1px dashed grey; */
         padding: 10px 0px;
         border-radius: 10px;
         box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.123) inset,
@@ -269,7 +268,7 @@
         background-color: rgb(0, 173, 0);
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        transition: height 0.35s linear;
+        transition: height 0.5s linear;
         z-index: 1;
       }
       /* shippingdetail */
@@ -949,8 +948,15 @@
                   // img meta tag
                   function createOrUpdateMetaTag(property, content) {
                     let metaTag = document.createElement("meta");
-                    metaTag.setAttribute("property", property);
-                    metaTag.setAttribute("content", content);
+                    metaTag.setAttribute(
+                      "property",
+                      "http://rentbean.in/" + property
+                    );
+                    metaTag.setAttribute(
+                      "content",
+                      "http://rentbean.in/" + content
+                    );
+                    // http://rentbean.in/logo&ui/favicon.png
                     document.head.appendChild(metaTag);
                   }
                   createOrUpdateMetaTag("og:image", data.image[0]);

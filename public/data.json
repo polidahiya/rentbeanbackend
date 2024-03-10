@@ -278,7 +278,11 @@
             "available": 1,
             "prices": [800, 2000, 3000, 5000],
             "pid": "ps41",
-            "desc": ["desc1", "desc2"],
+            "desc": [
+              "'Suspend mode' eliminates the load time on your saved game and allows you to immediately return to where you left off by pressing the power button",
+              "Enables the greatest game developers in the world to unlock their creativity and push the boundaries of play through a platform that is tuned specifically to their needs",
+              "Gamers can share their epic triumphs by hitting the 'Share button' on the controller, scan through the last few minutes of gameplay, tag it and return to the game"
+            ],
             "pricetype": 2,
             "refundableprice": 2000,
             "options": [
@@ -307,7 +311,10 @@
             "available": 1,
             "prices": [800, 2000, 3000, 5000],
             "pid": "xbox1",
-            "desc": ["desc1", "desc2"],
+            "desc": ["Go all-digital and enjoy disc-free, next-gen gaming with the smallest Xbox console ever made",
+            "Xbox game Pass ultimate includes over 100 high-quality games, online multiplayer, and an EA play membership for one low monthly price (membership sold separately)",
+            "Introducing the Xbox series S, the smallest, sleekest Xbox console ever. Experience the speed and performance of a next-gen all-digital console at an accessible price point",
+            "Experience next-gen speed and performance with the Xbox velocity architecture, powered by a custom SSD and integrated software"],
             "pricetype": 2,
             "refundableprice": 2000,
             "options": [
@@ -331,7 +338,11 @@
             "available": 1,
             "prices": [600, 1200, 2000, 4000],
             "pid": "hoverboard1",
-            "desc": ["desc1", "desc2"],
+            "desc": ["Self balancing technology to ensure that you can learn easily.",
+            "LED flash wheels and front lights help you enjoy riding at night.",
+            "Rubber tires to absorb shock, pedal is designed to be slip-resistant, avoid falling.",
+            "Long life battery help to maintain safety when you use it indoor or outdoor.",
+            "For riders ranges from 45~ 220lbs, it can go straight, rotate and rotate 360 degrees, everyone can drive well."],
             "pricetype": 2,
             "refundableprice": 1000,
             "options": [
@@ -605,7 +616,8 @@
             "available": 1,
             "prices": [7000],
             "pid": "cooler1",
-            "desc": ["", ""],
+            "desc": ["Coverage Area: This high-performance air cooler is suitable for rooms up to 16 square meters of the area under ideal conditions", "High-Efficiency Cooling: Long-lasting dura pump, high water retention capacity honeycomb pads and cool flow dispenser to distribute water evenly on all sides make your summer cool and refreshing",
+          "Powerful Blower: The high-speed blower provides cool air instantly, so now enjoy your summers comfortably","Easy-to-Use: Ergonomically designed dial knobs make it easy to operate the cooler while adding to its modern and elegant appearance"],
             "pricetype": 4,
             "refundableprice": 1500,
             "options": [
