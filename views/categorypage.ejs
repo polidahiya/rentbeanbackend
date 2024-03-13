@@ -285,7 +285,7 @@
       document.querySelector(".secnav span").innerHTML = product;
       //fetch itemlist
       let producttoshow;
-      fetch("data.json")
+      fetch("/data")
         .then((res) => res.json())
         .then((res) => {
           for (const subcat in res[product]["subcat"]) {

@@ -9,13 +9,10 @@ app.use(express.json());
 const port = process.env.PORT || 3005;
 app.listen(port);
 //
-const bodyParser = require("body-parser");
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
-//
 console.log("listening");
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", require("./pages"));
+app.use("/data", require("./data"));
 app.use("/placeorder", require("./makeorder"));
 app.use("/admin", require("./adminroute"));
 
@@ -91,17 +88,21 @@ app.get("/logout", (req, res) => {
     message: "logedout",
   });
 });
+
+// 404 page
+app.use((req, res) => {
+  res.status(404).render("notfound.ejs");
+});
 //
 //
 // site spy
 // get previewdata
-app.get("/data", verifyToken, async (req, res) => {
-  try {
-    data.updateOne({}, { $inc: { totalvisits: 1 } }, { upsert: true });
-    let result = await data.findOne({});
-    res.json(result);
-  } catch (error) {
-    console.log(error);
-  }
-});
-
+// app.get("/data", verifyToken, async (req, res) => {
+//   try {
+//     data.updateOne({}, { $inc: { totalvisits: 1 } }, { upsert: true });
+//     let result = await data.findOne({});
+//     res.json(result);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });

@@ -7,7 +7,7 @@ window.onscroll = (e) => {
   }
 };
 //
-fetch("data.json")
+fetch("/data")
   .then((res) => res.json())
   .then((res) => {
     let i = 0;
@@ -165,8 +165,6 @@ function addtocart() {
   }
   if (cartadded) {
     // to remove
-    document.querySelector(".addtocart .eff").style.backgroundColor =
-      "rgb(0, 173, 0)";
     updateaddcartbutton(true);
     if (numberofcartproduct > 0) {
       numberofcartproduct--;
@@ -177,8 +175,6 @@ function addtocart() {
     shownotification("Removed from cart");
   } else {
     // to add
-    document.querySelector(".addtocart .eff").style.backgroundColor =
-      "rgb(253, 52, 52)";
     updateaddcartbutton(false);
     numberofcartproduct++;
     // localstorage

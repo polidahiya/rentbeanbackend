@@ -11,7 +11,8 @@ module.exports = async function connectToMongo() {
     const db = client.db("rentbeen");
     const data = db.collection("data");
     const orders = db.collection("orders");
-    return { data, orders, ObjectId };
+    const sitedata = db.collection("sitedata");
+    return { data, orders, sitedata, ObjectId };
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
     throw error;

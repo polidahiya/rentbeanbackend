@@ -7,7 +7,6 @@ const verifyToken=require("./verifytoken")
 router.get("/orders",verifyToken, async (req, res) => {
   try {
     const { orders } = await connectToMongo();
-
     const order = await orders
       .find({ completed: false })
       .sort({ date: 1 })

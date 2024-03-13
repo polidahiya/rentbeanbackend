@@ -7,11 +7,11 @@
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <meta
       name="description"
-      content="Welcome to our premier rental website offering a diverse range of products to meet all your needs! From fitness and gym equipment to cutting-edge electronics, gaming consoles, laptops, and a variety of event and party items, we have everything you need for your convenience. Serving the vibrant areas of Gurgaon(Gurugram), Delhi, and Noida, our platform ensures easy access to quality rentals, making your experience seamless and hassle-free."
+      content="Welcome to our premier rental website offering a diverse range of products to meet all your needs! From fitness and gym equipment to cutting-edge electronics, gaming consoles, laptops, and a variety of event and party items, we have everything you need for your convenience. Serving the vibrant areas of Gurgaon(Gurugram), Delhi, and Noida, our platform ensures easy access to quality rentals, making your experience seamless and hassle-free.rentbean.in, Rentbean, Best products on rent in Gurgaon in 2024, Furniture products on rent in Gurgaon in 2024, Appliances on rent in Gurgaon in 2024, Furniture on rent in Gurgaon in 2024, Rent items near me, Rent items in Gurgaon , Rent items in Delhi NCR "
     />
     <meta
       name="keywords"
-      content="rentbean.in , Rentbean , Rent items in Gurgaon, Rent items in Delhi , Rent items in Noida , Rental website, Fitness equipment rental, Gym equipment rental, Electronics rental, Gaming console rental, Laptop rental, Event rentals, Party rentals, Gurgaon rentals, Delhi rentals, Noida rentals, Convenience rentals, Quality rentals, Hassle-free rentals."
+      content="rentbean.in, Rentbean, Best products on rent in Gurgaon in 2024, Furniture products on rent in Gurgaon in 2024, Appliances on rent in Gurgaon in 2024, Furniture on rent in Gurgaon in 2024, Rent items near me, Rent items in Gurgaon , Rent items in Delhi NCR "
     />
     <title>Rentbean.in</title>
     <meta name="image" content="http://rentbean.in/logo&ui/favicon.png" />
@@ -263,7 +263,7 @@
     <!-- ui -->
     <script>
       // categories card
-      fetch("data.json")
+      fetch("/data")
         .then((res) => res.json())
         .then((res) => {
           for (const cat in res) {
@@ -327,7 +327,7 @@
           name: "Daily Rent",
         }, //upto week
       };
-      fetch("data.json")
+      fetch("/data")
         .then((res) => res.json())
         .then((res) => {
           let productarray = [];
