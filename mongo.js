@@ -1,6 +1,6 @@
 const { MongoClient, ObjectId } = require("mongodb");
 
-const db_link = prcess.env.mongolink;
+const db_link = process.env.mongolink;
 
 const client = new MongoClient(db_link);
 
