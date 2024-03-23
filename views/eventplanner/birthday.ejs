@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Party - Rentbean.in event Planners</title>
+    <!--  -->
+
+    <link rel="stylesheet" href="/eventmanager/nav.css" />
+    <style>
+      * {
+        -webkit-tap-highlight-color: transparent;
+        font-family: "Mulish", sans-serif;
+      }
+      body {
+        --theme: #e72e77;
+        padding: 60px 40px;
+        background-image: radial-gradient(
+            circle at center center,
+            rgba(217, 217, 217, 0.05) 0%,
+            rgba(217, 217, 217, 0.05) 15%,
+            rgba(197, 197, 197, 0.05) 15%,
+            rgba(197, 197, 197, 0.05) 34%,
+            rgba(178, 178, 178, 0.05) 34%,
+            rgba(178, 178, 178, 0.05) 51%,
+            rgba(237, 237, 237, 0.05) 51%,
+            rgba(237, 237, 237, 0.05) 75%,
+            rgba(138, 138, 138, 0.05) 75%,
+            rgba(138, 138, 138, 0.05) 89%,
+            rgba(158, 158, 158, 0.05) 89%,
+            rgba(158, 158, 158, 0.05) 100%
+          ),
+          radial-gradient(
+            circle at center center,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 255, 255) 6%,
+            rgb(255, 255, 255) 6%,
+            rgb(255, 255, 255) 12%,
+            rgb(255, 255, 255) 12%,
+            rgb(255, 255, 255) 31%,
+            rgb(255, 255, 255) 31%,
+            rgb(255, 255, 255) 92%,
+            rgb(255, 255, 255) 92%,
+            rgb(255, 255, 255) 97%,
+            rgb(255, 255, 255) 97%,
+            rgb(255, 255, 255) 100%
+          );
+        background-size: 42px 42px;
+      }
+      .activebirthdaypage {
+        pointer-events: all;
+        opacity: 1;
+      }
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        background-color: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--theme);
+        border-radius: 10px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+      .exiteventpage {
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        background-color: var(--theme);
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 50%;
+        height: 35px;
+        aspect-ratio: 1;
+      }
+      .exiteventpage:hover {
+        background-color: white;
+        color: var(--theme);
+        outline: 1px solid var(--theme);
+      }
+      .exiteventpage svg {
+        stroke: white;
+      }
+      .exiteventpage:hover svg {
+        stroke: var(--theme);
+      }
+      section {
+        box-sizing: border-box;
+      }
+      h2 {
+        text-align: center;
+        color: var(--theme);
+        margin-top: 50px;
+      }
+      h2::before,
+      h2::after {
+        content: " ｡･:*˚:✧｡ ";
+      }
+      .scrollcontainer {
+        display: flex;
+        gap: 10px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: 5px 0px;
+      }
+      .scrollcontainer .itemcard {
+        background-color: white;
+        padding: 5px;
+        box-sizing: border-box;
+        border: 1px solid #80808033;
+        border-radius: 5px;
+      }
+      .scrollcontainer .itemcard img {
+        pointer-events: none;
+        height: 250px;
+      }
+      .scrollcontainer .itemcard > div {
+        text-align: center;
+        margin: 5px 0px;
+      }
+      .scrollcontainer .itemcard .pricecontainer {
+        box-sizing: border-box;
+        display: flex;
+        gap: 5px;
+        font-size: 14px;
+        color: var(--theme);
+      }
+      .scrollcontainer .itemcard .pricecontainer span:nth-child(1) {
+        color: grey;
+        opacity: 0.5;
+        text-decoration: line-through;
+        font-size: 12px;
+      }
+      /* magic cards */
+      .gridcontainer {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .gridcontainer .cards::before {
+        content: "⭐⭐⭐";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      .gridcontainer .cards {
+        position: relative;
+        width: 100%;
+        background-color: #f8f8fa;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 15px 0px;
+      }
+      .gridcontainer .cards > img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+      }
+      .gridcontainer .cards p {
+        color: var(--theme);
+        text-align: center;
+        font-size: 18px;
+      }
+      .gridcontainer .cards p::before,
+      .gridcontainer .cards p::after {
+        content: " ｡･:*˚:✧｡ ";
+      }
+      /*  */
+      .effect {
+        transform: scale(0.5);
+        transition: 0.6s;
+        opacity: 0;
+      }
+      .active {
+        transform: scale(1);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('nav.ejs') %>
+    <a href="/eventplanner" class="exiteventpage">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M6 12H18M6 12L11 7M6 12L11 17"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </g>
+      </svg>
+    </a>
+    <h1>Birthday Celebration</h1>
+    <!-- themes -->
+    <section>
+      <h2>Cake</h2>
+      <div class="scrollcontainer">
+        <div class="itemcard">
+          <img
+            src="https://m.media-amazon.com/images/I/81Kefgy6CFL.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://m.media-amazon.com/images/I/81Kefgy6CFL.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://m.media-amazon.com/images/I/81Kefgy6CFL.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://m.media-amazon.com/images/I/81Kefgy6CFL.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://m.media-amazon.com/images/I/81Kefgy6CFL.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- cakes -->
+    <section>
+      <h2>Cake</h2>
+      <div class="scrollcontainer">
+        <div class="itemcard">
+          <img
+            src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+        <div class="itemcard">
+          <img
+            src="https://handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE.jpg"
+            alt="Red Velvet Cream Cake"
+          />
+          <div class="name">Red Velvet Cream Cake</div>
+          <div class="pricecontainer">
+            <span>₹200</span>
+            <span>₹200</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <h2>More Items</h2>
+    <div class="gridcontainer">
+      <div class="cards effect">
+        <img
+          src="https://img.freepik.com/premium-photo/magician-hd-8k-wallpaper-stock-photographic-image_890746-27559.jpg"
+          alt=""
+        />
+        <p>Magician</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://skyball.co.in/cdn/shop/files/MusicSystem201-PDP_1.jpg?v=1701159509"
+          alt=""
+        />
+        <p>Music System</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://m.media-amazon.com/images/I/31ZQ6EXkhrL._AC_UY1100_.jpg"
+          alt=""
+        />
+        <p>Live Cartoon Characters</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://cdn.cherishx.com/uploads/1651815343_large.jpg"
+          alt=""
+        />
+        <p>Kids Tattoo Artist</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://www.wikihow.com/images/thumb/2/24/Do-Nail-Art-Step-5-Version-5.jpg/550px-nowatermark-Do-Nail-Art-Step-5-Version-5.jpg"
+          alt=""
+        />
+        <p>Nailpaint Artist</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://static.toiimg.com/thumb/resizemode-4,width-1200,height-900,msid-80288374/80288374.jpg"
+          alt=""
+        />
+        <p>Gaming Consoles</p>
+      </div>
+    </div>
+    <h2>Outdoor Items</h2>
+    <div class="gridcontainer">
+      <div class="cards effect">
+        <img
+          src="https://5.imimg.com/data5/SELLER/Default/2021/4/IZ/LX/BG/18309210/whatsapp-image-2021-04-12-at-10-19-55-pm-500x500.jpg"
+          alt=""
+        />
+        <p>Trampoline</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://rukminim2.flixcart.com/image/850/1000/xif0q/inflatable-product/8/o/i/sky-balloon-inflatable-jumping-bouncy-for-house-garden-original-imagzfzruqwzkxj9.jpeg?q=90&crop=false"
+          alt=""
+        />
+        <p>Bouncy</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://i.pinimg.com/564x/d4/eb/f1/d4ebf1098d1853114f5c15f51bdac32a.jpg"
+          alt=""
+        />
+        <p>Kids Train</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://rideontoys.co.in/wp-content/uploads/2022/08/71Ii-87PPVL._SL1500_.jpg"
+          alt=""
+        />
+        <p>Kids Cars</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://rukminim2.flixcart.com/image/450/400/xif0q/shopsy-shuttle/n/f/l/sports-net-cricket-practice-net-60-10-color-green-1-75-nylon-original-imagnhvxtu6zb4vz.jpeg?q=90&crop=false"
+          alt=""
+        />
+        <p>Kids Cricket Loan</p>
+      </div>
+      <div class="cards effect">
+        <img
+          src="https://funblast.in/cdn/shop/files/815gKc9BDVL._SL1500.jpg?v=1694354196"
+          alt=""
+        />
+        <p>Kids Ball Pool</p>
+      </div>
+    </div>
+    <!-- nav -->
+    <script src="/eventmanager/nav.js"></script>
+    <script>
+      window.onscroll = () => {
+        document.querySelectorAll(".effect").forEach((item) => {
+          let itemtop = item.getBoundingClientRect().top;
+          if (itemtop < window.innerHeight - window.innerHeight / 3) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="/eventmanager/https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7398670337880164"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="msvalidate.01" content="E745FFD9C78D58022A962CD8F686FA7D" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="image" content="http://rentbean.in/logo&ui/favicon.png" />
+    <meta
+      name="description"
+      content="Welcome to our premier rental website offering a diverse range of products to meet all your needs! From fitness and gym equipment to cutting-edge electronics, gaming consoles, laptops, and a variety of event and party items, we have everything you need for your convenience. Serving the vibrant areas of Gurgaon(Gurugram), Delhi, and Noida, our platform ensures easy access to quality rentals, making your experience seamless and hassle-free.rentbean.in, Rentbean, Best products on rent in Gurgaon in 2024, Furniture products on rent in Gurgaon in 2024, Appliances on rent in Gurgaon in 2024, Furniture on rent in Gurgaon in 2024, Rent items near me, Rent items in Gurgaon , Rent items in Delhi NCR "
+    />
+    <meta
+      name="keywords"
+      content="rentbean.in, Rentbean, Best products on rent in Gurgaon in 2024, Furniture products on rent in Gurgaon in 2024, Appliances on rent in Gurgaon in 2024, Furniture on rent in Gurgaon in 2024, Rent items near me, Rent items in Gurgaon , Rent items in Delhi NCR "
+    />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Event Planner - Rentbean.in</title>
+    <!-- nav -->
+    <link rel="stylesheet" href="/eventmanager/nav.css" />
+    <!--  -->
+    <style>
+      * {
+        -webkit-tap-highlight-color: transparent;
+        font-family: "Mulish", sans-serif;
+      }
+      html {
+        overflow-x: hidden;
+      }
+      body {
+        margin: 0;
+        --theme: #e72e77;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 5px;
+        background-color: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--theme);
+        border-radius: 10px;
+      }
+      .topcontainer {
+        position: fixed;
+        width: 100%;
+        min-height: 100vh;
+        max-height: 100vh;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+      .bgimage {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+        z-index: -1;
+      }
+      /*  */
+      .grassimage {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url(/eventmanager/flowers.png) center / contain repeat-x;
+      }
+      main {
+        position: relative;
+        z-index: 10;
+        margin-top: 100vh;
+        background-image: radial-gradient(
+            circle at center center,
+            rgba(217, 217, 217, 0.05) 0%,
+            rgba(217, 217, 217, 0.05) 15%,
+            rgba(197, 197, 197, 0.05) 15%,
+            rgba(197, 197, 197, 0.05) 34%,
+            rgba(178, 178, 178, 0.05) 34%,
+            rgba(178, 178, 178, 0.05) 51%,
+            rgba(237, 237, 237, 0.05) 51%,
+            rgba(237, 237, 237, 0.05) 75%,
+            rgba(138, 138, 138, 0.05) 75%,
+            rgba(138, 138, 138, 0.05) 89%,
+            rgba(158, 158, 158, 0.05) 89%,
+            rgba(158, 158, 158, 0.05) 100%
+          ),
+          radial-gradient(
+            circle at center center,
+            rgb(255, 255, 255) 0%,
+            rgb(255, 255, 255) 6%,
+            rgb(255, 255, 255) 6%,
+            rgb(255, 255, 255) 12%,
+            rgb(255, 255, 255) 12%,
+            rgb(255, 255, 255) 31%,
+            rgb(255, 255, 255) 31%,
+            rgb(255, 255, 255) 92%,
+            rgb(255, 255, 255) 92%,
+            rgb(255, 255, 255) 97%,
+            rgb(255, 255, 255) 97%,
+            rgb(255, 255, 255) 100%
+          );
+        background-size: 42px 42px;
+      }
+      .eventscontainers {
+        position: relative;
+        padding: 50px 0;
+        width: 100%;
+        height: 30vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+      }
+      .eventscontainers .eventdesc {
+        width: 100%;
+        padding-inline: 50px;
+        box-sizing: border-box;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .eventscontainers .eventdesc h3 {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s 0.2s;
+        font-size: 1.4vw;
+        white-space: nowrap;
+        color: var(--theme);
+      }
+      .eventscontainers .eventdesc h3::before,
+      .eventscontainers .eventdesc h3::after {
+        content: " ｡･:*˚:✧｡ ";
+      }
+      .activeeventscontainers h3 {
+        opacity: 1 !important;
+        transform: translateY(0px) !important;
+      }
+      .eventscontainers .eventdesc p {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s 0.4s;
+        font-size: 1.2vw;
+        font-style: italic;
+      }
+      .activeeventscontainers p {
+        opacity: 1 !important;
+        transform: translateY(0px) !important;
+      }
+      .eventscontainers .eventdesc button {
+        border: none;
+        background-color: var(--theme);
+        color: white;
+        cursor: pointer;
+        padding: 5px 20px;
+        font-size: 1.2vw;
+        border-radius: 100px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s 0.6s, color 0s 0s, outline 0s 0s,
+          background-color 0s 0s;
+      }
+      .eventscontainers .eventdesc button:hover {
+        background-color: white;
+        color: var(--theme);
+        outline: 1px solid var(--theme);
+      }
+      .activeeventscontainers .eventdesc button {
+        opacity: 1 !important;
+        transform: translateY(0px) !important;
+      }
+      /*  */
+      .eventscontainers .imgcontainer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: 0.7s;
+        overflow: hidden;
+      }
+      .eventscontainers .imgcontainer:hover img {
+        transform: scale(1);
+      }
+      .rightimgcontainer {
+        border-radius: 9999px 0 0 9999px;
+        transform: translateX(20%);
+      }
+      .leftimgcontainer {
+        border-radius: 0 9999px 9999px 0;
+        transform: translateX(-20%);
+      }
+
+      .eventscontainers .imgcontainer img {
+        transform: scale(1.2);
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: 0.6s;
+      }
+      .activeeventscontainers .imgcontainer {
+        opacity: 1 !important;
+        transform: translateX(0%) !important;
+      }
+      /* promises */
+      .promisescontainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 50px;
+        margin-top: 50px;
+        box-sizing: border-box;
+        padding: 50px;
+        background-image: linear-gradient(
+            45deg,
+            rgba(254, 246, 210, 0.53) 0%,
+            rgba(254, 246, 210, 0.53) 14.286%,
+            rgba(221, 240, 216, 0.53) 14.286%,
+            rgba(221, 240, 216, 0.53) 28.572%,
+            rgba(188, 233, 223, 0.53) 28.572%,
+            rgba(188, 233, 223, 0.53) 42.858%,
+            rgba(156, 227, 229, 0.53) 42.858%,
+            rgba(156, 227, 229, 0.53) 57.144%,
+            rgba(123, 220, 235, 0.53) 57.144%,
+            rgba(123, 220, 235, 0.53) 71.42999999999999%,
+            rgba(90, 214, 242, 0.53) 71.43%,
+            rgba(90, 214, 242, 0.53) 85.71600000000001%,
+            rgba(57, 207, 248, 0.53) 85.716%,
+            rgba(57, 207, 248, 0.53) 100.002%
+          ),
+          linear-gradient(
+            135deg,
+            rgb(246, 99, 200) 0%,
+            rgb(246, 99, 200) 12.5%,
+            rgb(223, 98, 196) 12.5%,
+            rgb(223, 98, 196) 25%,
+            rgb(199, 97, 192) 25%,
+            rgb(199, 97, 192) 37.5%,
+            rgb(176, 96, 188) 37.5%,
+            rgb(176, 96, 188) 50%,
+            rgb(152, 95, 184) 50%,
+            rgb(152, 95, 184) 62.5%,
+            rgb(129, 94, 180) 62.5%,
+            rgb(129, 94, 180) 75%,
+            rgb(105, 93, 176) 75%,
+            rgb(105, 93, 176) 87.5%,
+            rgb(82, 92, 172) 87.5%,
+            rgb(82, 92, 172) 100%
+          );
+      }
+      .promisescontainer .promiscard {
+        color: var(--theme);
+        background-color: white;
+        height: 150px;
+        aspect-ratio: 3/2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px 0 50px 0;
+      }
+
+      .promisescontainer .promiscard img {
+        height: 50%;
+        aspect-ratio: 1;
+      }
+      /* Truested by */
+      .companies {
+        background-color: white;
+        padding: 50px 40px;
+      }
+      .companies h1 {
+        text-align: center;
+        margin: 0;
+      }
+      .companies .companiesscroll {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .companies .companiesscroll img {
+        height: 80px;
+        aspect-ratio: 7/4;
+        object-fit: contain;
+        box-sizing: border-box;
+        border: 1px solid rgba(128, 128, 128, 0.371);
+        border-radius: 10px;
+        padding: 10px;
+        transition: 0.3s;
+      }
+      .companies .companiesscroll img:hover {
+        padding: 5px;
+      }
+      /* note by ceo */
+      .messagebyus {
+        position: relative;
+        color: white;
+        padding: 100px 0px;
+        background: url(/eventmanager/images/aboutusbg2.jpg) center / cover;
+      }
+      .messagebyus h2 {
+        text-decoration: underline;
+        margin-bottom: 40px;
+      }
+      .messagebyus p {
+        font-style: italic;
+        font-size: 14px;
+        margin-top: 20px;
+      }
+      .messagebyus p span {
+        color: var(--theme);
+      }
+      .messagebyus > * {
+        max-width: 700px;
+        margin: auto;
+        text-align: center;
+      }
+    </style>
+    <!-- mobile -->
+    <style>
+      @media screen and (width<450px) {
+        .eventscontainers {
+          padding: 50px 0;
+          height: unset;
+          align-items: end;
+          flex-direction: column-reverse;
+        }
+        .eventscontainers:nth-child(odd) {
+          align-items: start;
+          flex-direction: column;
+        }
+        .eventscontainers .eventdesc h3 {
+          font-size: 18px;
+        }
+        .eventscontainers .eventdesc p {
+          font-size: 16px;
+          display: none;
+        }
+        .eventscontainers .imgcontainer {
+          width: calc(100% - 20px);
+        }
+        .eventscontainers .eventdesc button {
+          display: none;
+        }
+        /*  */
+        .promisescontainer {
+          padding: 50px 0px;
+          gap: 20px;
+          justify-content: center;
+        }
+        .promisescontainer .promiscard {
+          height: 150px;
+          aspect-ratio: 1;
+          border-radius: 10 0;
+        }
+        .promisescontainer .promiscard p {
+          white-space: nowrap;
+          font-size: 14px;
+        }
+        /*  */
+        .companies {
+          padding: 50px 20px;
+        }
+        .companies .companiesscroll img {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('nav.ejs') %>
+    <div class="topcontainer">
+      <img class="bgimage" src="/eventmanager/images/wedding.jpg" alt="" />
+    </div>
+    <main>
+      <div class="grassimage"></div>
+      <a href="/eventplanner/birthday" class="eventscontainers">
+        <div class="eventdesc">
+          <h3>Birthday Celebration</h3>
+          <p>
+            🎉 Celebrate in Style: A Birthday Bash to Remember! 🎂
+            <br />
+
+            Join us for an unforgettable birthday extravaganza! Whether you're
+            turning sweet sixteen or fabulous forty, our expert team of event
+            planners is here to make your special day shine. Picture-perfect
+            decorations, mouthwatering treats, and entertainment tailored to
+            your tastes await you and your guests.
+            <br />
+
+            Indulge in delectable cuisine, sip on signature cocktails, and dance
+            the night away to your favorite tunes. From intimate gatherings to
+            grand celebrations, we'll craft an experience that reflects your
+            personality and exceeds your wildest dreams.
+            <br />
+
+            Mark your calendar and get ready to make memories that will last a
+            lifetime. Let's toast to another year of laughter, love, and endless
+            possibilities!
+          </p>
+          <button>Explore ></button>
+        </div>
+        <div class="imgcontainer rightimgcontainer">
+          <img
+            src="/eventmanager/images/birthday.jpg"
+            alt="Birthday party event manager"
+          />
+        </div>
+      </a>
+      <div class="eventscontainers">
+        <div class="imgcontainer leftimgcontainer">
+          <img
+            src="/eventmanager/images/wedding.jpg"
+            alt="wedding celebration party event manager"
+          />
+        </div>
+        <div class="eventdesc">
+          <h3>Wedding Celebration</h3>
+          <p>
+            "✨ Experience the enchantment of a lifetime as two hearts unite in
+            the celebration of love. 💖 Our meticulously curated wedding
+            celebrations blend elegance, romance, and personal touches to create
+            unforgettable moments. From the ethereal ambiance of the ceremony to
+            the joyous revelry of the reception, every detail is thoughtfully
+            crafted to reflect the unique love story of the couple. 💍 Let us
+            transform your dreams into reality, ensuring your special day is
+            filled with laughter, love, and cherished memories that will last a
+            lifetime. 🥂✨"
+          </p>
+          <button>Explore ></button>
+        </div>
+      </div>
+      <div class="eventscontainers">
+        <div class="eventdesc">
+          <h3>Corporate Celebration</h3>
+          <p>
+            "🎉 Embrace success and camaraderie with our expertly crafted
+            corporate celebrations. Whether it's commemorating milestones,
+            fostering team spirit, or simply reveling in achievements, our
+            events are meticulously tailored to reflect your company's unique
+            ethos and goals. From elegant soirées to dynamic team-building
+            activities, we curate unforgettable experiences that inspire, unite,
+            and leave a lasting impression. Elevate your corporate culture and
+            honor your team's accomplishments with our seamless and
+            sophisticated event planning services. 🥂✨"
+          </p>
+          <button>Explore ></button>
+        </div>
+        <div class="imgcontainer rightimgcontainer">
+          <img
+            src="/eventmanager/images/corporate.jpg"
+            alt="corporate party event manager"
+          />
+        </div>
+      </div>
+      <div class="eventscontainers">
+        <div class="imgcontainer leftimgcontainer">
+          <img
+            src="/eventmanager/images/privateparty.jpg"
+            alt="private party event manager"
+          />
+        </div>
+        <div class="eventdesc">
+          <h3>Private Party</h3>
+          <p>
+            "🎉 Embark on an exclusive journey of celebration with our bespoke
+            private party experience. Whether it's an intimate gathering of
+            close friends or a lavish affair for esteemed guests, our expert
+            event planners curate every detail to perfection. 🌟 From elegant
+            decor to tantalizing cuisine and seamless entertainment, we
+            transform your vision into an unforgettable reality. 💫 Elevate your
+            celebration with unparalleled sophistication and personalized
+            service, creating cherished memories that linger long after the last
+            toast. 🥂✨"
+          </p>
+          <button>Explore ></button>
+        </div>
+      </div>
+      <div class="eventscontainers">
+        <div class="eventdesc">
+          <h3>New Year Eve</h3>
+          <p>
+            "🎉 Ring in the New Year in style at our spectacular New Year's Eve
+            celebration! Join us for an unforgettable evening filled with
+            glamour, excitement, and endless festivities. 💃 Dance the night
+            away to live music performed by top artists, indulge in gourmet
+            cuisine 🍽️, and raise a toast 🥂 to new beginnings with our premium
+            selection of drinks. As the countdown to midnight begins,
+            anticipation fills the air, culminating in a dazzling fireworks
+            display 🎆 to welcome the arrival of the new year. Don't miss out on
+            the most extraordinary way to bid farewell to the old and welcome
+            the new! 🎇"
+          </p>
+          <button>Explore ></button>
+        </div>
+        <div class="imgcontainer rightimgcontainer">
+          <img
+            src="/eventmanager/images/new year eve party.jpeg"
+            alt="new year eve party event manager"
+          />
+        </div>
+      </div>
+      <div class="eventscontainers">
+        <div class="imgcontainer leftimgcontainer">
+          <img
+            class="leftimg"
+            src="/eventmanager/images/school events.jpg"
+            alt="school events party event manager"
+          />
+        </div>
+        <div class="eventdesc">
+          <h3>School Event</h3>
+          <p>
+            🎉 Join Us for an Unforgettable School Event! 🎉
+            <br />
+
+            Calling all students, parents, and faculty members! Get ready to
+            embark on an exciting journey filled with fun, laughter, and
+            memories to last a lifetime. Our school is buzzing with excitement
+            as we gear up for an extraordinary event designed just for you.
+            <br />
+
+            From captivating performances to thrilling activities, there's
+            something for everyone to enjoy. Whether you're a sports enthusiast,
+            an art aficionado, or simply looking to connect with fellow peers,
+            this event promises an enriching experience for all.
+            <br />
+
+            Come together with your friends and family to celebrate the spirit
+            of our school community. Let's create magical moments and celebrate
+            the diversity and talent that make our school truly special.
+          </p>
+          <button>Explore ></button>
+        </div>
+      </div>
+      <!-- promises -->
+      <div class="promisescontainer">
+        <div class="promiscard">
+          <img
+            src="/eventmanager/primises vectors/gift-svgrepo-com.svg"
+            alt=""
+          />
+          <p>Best Collection</p>
+        </div>
+        <div class="promiscard">
+          <img
+            src="/eventmanager/primises vectors/fast-delivery-truck-svgrepo-com.svg"
+            alt=""
+          />
+          <p>Instant Service</p>
+        </div>
+        <div class="promiscard">
+          <img
+            src="/eventmanager/primises vectors/telemarketer-support-svgrepo-com.svg"
+            alt=""
+          />
+          <p>Customer Support</p>
+        </div>
+        <div class="promiscard">
+          <img
+            src="/eventmanager/primises vectors/payment-method-bank-svgrepo-com.svg"
+            alt=""
+          />
+          <p>Secure Payment</p>
+        </div>
+      </div>
+      <!--  -->
+      <div class="messagebyus" id="messagebyceo">
+        <h2>‎ ‎ A Note from CEO ‎ ‎</h2>
+        <p>
+          Welcome to <span>Rentbean Event Planners</span>, where unforgettable
+          moments are crafted with care. With our expertise spanning across
+          Delhi, Gurgaon, and Noida, we specialize in curating exceptional
+          experiences for a variety of occasions.
+        </p>
+        <p>
+          Whether it's the joyous festivities of a Birthday Celebration, the
+          timeless romance of a Wedding Celebration, the professional finesse of
+          a Corporate Event, the intimate charm of a Private Party, the
+          exhilarating countdown of a New Year's Eve bash, or the spirited
+          enthusiasm of a School Event, we are dedicated to turning your vision
+          into reality.
+        </p>
+        <p>
+          From conceptualization to execution, our team ensures every detail is
+          meticulously planned, leaving you free to immerse yourself in the joy
+          of the moment. Let us transform your event into a cherished memory
+          that will be treasured for a lifetime.
+        </p>
+        <p>Contact us today to begin planning your next extraordinary event.</p>
+        <p>Thank you</p>
+      </div>
+      <!--  -->
+      <div class="companies">
+        <h1>Trusted By</h1>
+        <div class="companiesscroll"></div>
+      </div>
+    </main>
+    <script src="/eventmanager/nav.js"></script>
+    <!--to image scrol -->
+    <script>
+      let topimgarr = [];
+    </script>
+    <!-- parallax -->
+    <script>
+      window.onscroll = () => {
+        parrallax(".bgimage", 3);
+        // special effect manager
+        document.querySelectorAll(".eventscontainers").forEach((item) => {
+          let itemtop = item.getBoundingClientRect().top;
+          if (itemtop < window.innerHeight - window.innerHeight / 3) {
+            item.classList.add("activeeventscontainers");
+          } else {
+            item.classList.remove("activeeventscontainers");
+          }
+        });
+      };
+      //
+      function parrallax(elem, speed) {
+        document.querySelector(elem).style.transform =
+          "translateY(-" + window.scrollY / speed + "px)";
+      }
+    </script>
+    <!-- companies -->
+    <script>
+      let companiesarr = [
+        "/eventmanager/companies/IBM.png",
+        "/eventmanager/companies/airtel.png",
+        "/eventmanager/companies/HSBC.png",
+        "/eventmanager/companies/Wynk_music_logo.png",
+        "/eventmanager/companies/pizza-hut-.png",
+        "/eventmanager/companies/idfc.png",
+        "/eventmanager/companies/Reebok-logo.png",
+        "/eventmanager/companies/The_Lalit-01.png",
+      ];
+      companiesarr.forEach((companie) => {
+        let companiescard = document.createElement("img");
+        companiescard.src = companie;
+        companiescard.alt = companie;
+        companiescard.setAttribute("loading", "lazy");
+        document.querySelector(".companiesscroll").appendChild(companiescard);
+      });
+    </script>
+  </body>
+</html>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XRTTC0XC3Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XRTTC0XC3Z");
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7398670337880164"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title>Cart - Rentbean</title>
+    <link rel="manifest" href="../manifest.json" />
     <meta name="image" content="logo&ui/favicon.png" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,6 +39,42 @@
     <link rel="stylesheet" href="main.css" />
     <!-- page styles -->
     <style>
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 17%,
+            rgba(87, 212, 234, 0.72) 17%,
+            rgba(87, 212, 234, 0.72) 59%,
+            transparent 59%,
+            transparent 64%,
+            rgba(0, 187, 255, 0.6) 64%,
+            rgba(0, 187, 255, 0.6) 100%
+          ),
+          linear-gradient(
+            45deg,
+            transparent 0%,
+            transparent 2%,
+            rgba(87, 234, 222, 0.57) 2%,
+            rgba(87, 234, 222, 0.57) 46%,
+            rgba(114, 178, 239, 0.49) 46%,
+            rgba(114, 178, 239, 0.49) 54%,
+            transparent 54%,
+            transparent 63%,
+            rgba(0, 173, 255, 0.21) 63%,
+            rgba(0, 173, 255, 0.21) 100%
+          ),
+          linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+      }
       .cart {
         display: none !important;
       }
@@ -164,17 +220,15 @@
       main form > input {
         width: 100%;
         height: 30px;
-        border-radius: 10px;
         border: none;
         margin-bottom: 20px;
         margin-top: 5px;
         text-indent: 30px;
         outline: none;
-        box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.123) inset,
-          -5px -5px 7px rgba(255, 255, 255) inset;
+        border-bottom: 1px solid skyblue;
       }
       main form input:focus {
-        border: 1px solid var(--theme);
+        outline: 1px solid skyblue;
       }
       /*  */
       main .productscontainer {

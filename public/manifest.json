@@ -1,0 +1,16 @@
+{
+  "name": "Rentbean.in",
+  "short_name": "Rentbean.in",
+  "description": "Get Quality products for rent in Delhi(NCR)",
+  "icons": [
+    {
+      "src": "/logo&ui/favicon.png",
+      "sizes": "295x295",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}

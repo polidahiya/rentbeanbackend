@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XRTTC0XC3Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XRTTC0XC3Z");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
@@ -90,7 +104,7 @@
         padding: 50px 0;
         box-sizing: border-box;
         filter: hue-rotate(0deg);
-        animation: rotatehue 200s infinite linear ;
+        animation: rotatehue 200s infinite linear;
       }
       @keyframes rotatehue {
         0% {
@@ -125,9 +139,13 @@
         transform: translateY(25%);
         animation: blink 0.5s infinite alternate;
       }
-      @keyframes blink{
-        0%{opacity: 1;}
-        100%{opacity: 0;}
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
       }
       @media screen and (width<450px) {
         .secnav {
@@ -303,8 +321,11 @@
         experience, making it convenient, affordable, and enjoyable.`;
       let i = 0;
       let timer = setInterval(() => {
-        document.querySelectorAll(".cursor").forEach(item=>{item.remove()})
-        document.querySelector(".desc").innerHTML += text[i]+'<div class="cursor"></div>';
+        document.querySelectorAll(".cursor").forEach((item) => {
+          item.remove();
+        });
+        document.querySelector(".desc").innerHTML +=
+          text[i] + '<div class="cursor"></div>';
         i++;
         if (i == text.length) {
           clearInterval(timer);

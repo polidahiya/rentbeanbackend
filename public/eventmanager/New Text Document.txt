@@ -1,0 +1,12 @@
+birthday :- 
+indoor :- cake,balloons,flower deco,themes,cutouts,cutleries,props,tra,poper,music system,magician,tattooartist,nailartists,gaming consoles,live cartoon character
+outdoor:- trapuling,bouncy,thompson train,kids cars,kids play area(1-4),ball pools,outdoor games,cricket loan,
+
+
+wedding:-tent,catters,cook,decorations,lightenings,dj,photographers,pandit,
+
+
+corporate:-
+indoor:-char game,awards,event operator,
+outdoor:-
+suppports:- fire extinguiser,first aid kit

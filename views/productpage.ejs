@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XRTTC0XC3Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-XRTTC0XC3Z");
+    </script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7398670337880164"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="<%= product.metadesc %>" />
@@ -12,6 +31,7 @@
     />
     <link rel="icon" href="logo&ui/favicon.png" type="image/png" />
     <title></title>
+    <link rel="manifest" href="../manifest.json" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1238,7 +1258,7 @@
         .then((res) => {
           for (const cat in res) {
             if (!res[cat]["subcat"][subcat]) continue;
-            
+
             res[cat]["subcat"][subcat]["products"].forEach((data, index) => {
               let card = document.createElement("div");
               card.classList.add("cards");

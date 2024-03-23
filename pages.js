@@ -47,7 +47,6 @@ router.get("/cancelationandreturnpolicy", (req, res) => {
 router.get("/privacypolicy", (req, res) => {
   res.render("privacypolicy.ejs");
 });
-
 function getdata() {
   try {
     const jsonData = fs.readFileSync("./public/data.json", "utf8");
@@ -77,5 +76,14 @@ async function getproduct(proid) {
     return null;
   }
 }
+
+// event planners
+router.get("/eventplanner", (req, res) => {
+  res.render("eventplanner/eventplanner.ejs");
+});
+router.get("/eventplanner/birthday", (req, res) => {
+  res.render("eventplanner/birthday.ejs");
+});
+
 
 module.exports = router;
